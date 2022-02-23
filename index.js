@@ -21,10 +21,10 @@ client.on('messageCreate', (message) => {
         return;
     }
 
-    if (!message.channel === "🤖bot-commands🤖") {
-        message.reply({content: "go to bot commands if you want to use me"})
-        return;
-    }
+   // if (!message.channel === "🤖bot-commands🤖") {
+     //   message.reply({content: "go to bot commands if you want to use me"})
+      //  return;
+ //   }
 
    // if (message.content === 'hi bot'|| message.content === 'Hi bot') {
       //  message.reply({
