@@ -31,6 +31,7 @@ client.on('messageCreate', (message) => {
           //  content: "your codes have no power here "+ message.author.username,
         
       //  })
+      //e
     if (message.content === 'hi bot'|| message.content === 'Hi bot') {
         message.reply({
             content: 'hello '+ message.author.username,
