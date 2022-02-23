@@ -20,7 +20,7 @@ client.on('messageCreate', (message) => {
     }
     if (message.content === 'hi bot'|| message.content === 'Hi bot') {
         message.reply({
-            content: 'hi bot',
+            content: 'hello'+ message.author,
             
         })
     }
