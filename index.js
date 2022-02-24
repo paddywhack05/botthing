@@ -13,22 +13,8 @@ client.on('ready', () => {
     console.log('IT is ready the bot')
 
     //what my bots doing
-    client.on("ready",async()=> {
-        let servers = await client.guilds.cache.size
-        let servercount = await client.guilds.cache.reduce((a,b)=> a+b.memberCount,0 )
-
-        const activities =[
-            `?help | ${servers} servers`,
-        ]
-
-        setInterval(() =>{
-            const status = activities[Math.floor(Math.random()*activities.length)]
-            client.user.setPresence({activities:[{name: `${status}`}]})
-
-        }, 5000)
-    })
-    client.user.setActivity("bot",{type: "being a"})
-})
+    client.user.setActivity("how to be the best botbot",{ type: "Watching" }).catch(console.error)
+})//e
 //when message create event
 client.on('messageCreate', (message) => {
 
