@@ -1,4 +1,4 @@
-import DiscordJS, { Intents } from 'discord.js'
+import DiscordJS, { BaseGuild, Guild, Intents } from 'discord.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -20,22 +20,24 @@ client.on('messageCreate', (message) => {
     if(message.author.bot){
         return;
     }
+   // if (Guild.name ===)
 
-   // if (!message.channel === "🤖bot-commands🤖") {
-     //   message.reply({content: "go to bot commands if you want to use me"})
-      //  return;
- //   }
-
-   // if (message.content === 'hi bot'|| message.content === 'Hi bot') {
-      //  message.reply({
-          //  content: "your codes have no power here "+ message.author.username,
-        
-      //  })
-      //e
+    if (message.content === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A'|| message.content === 'up, up, down, down, left, right, left, right, b, a'|| message.content === "Up Up Down Down Left Right Left Right B A"|| message.content === "up up down down left right left right b a") {
+        message.reply({
+            content: 'hello '+ message.author.username,
+            
+        })
+    }
     if (message.content === 'hi bot'|| message.content === 'Hi bot') {
         message.reply({
             content: 'hello '+ message.author.username,
             
+        })
+    }
+
+    if (message.content=== "guild id"){
+        message.reply({
+            content : "here you go" + message.author.avatar + BaseGuild
         })
     }
 })
