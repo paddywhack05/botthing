@@ -13,7 +13,7 @@ client.on('ready', () => {
     console.log('IT is ready the bot')
 
     //what my bots doing
-    client.user.setActivity("how to be the best botbot",{ type: "Watching" }).catch(console.error)
+    client.user.setActivity("how to be the best botbot",{ type: "Watching" })
 })//e
 //when message create event
 client.on('messageCreate', (message) => {
