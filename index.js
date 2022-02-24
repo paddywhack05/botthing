@@ -1,4 +1,5 @@
 import DiscordJS, { BaseGuild, Guild, GuildBan, Intents } from 'discord.js'
+const client = new DiscordJS.Client();
 import dotenv from 'dotenv'
 dotenv.config()
 // what my discord bot needs from discord
@@ -14,10 +15,10 @@ const client = new DiscordJS.Client({
 //ready message
 client.on('ready', () => {
     console.log('IT is ready the bot')
-
+    client.user.setActivity('how to be a bot',{type:'WATCHING'}).catch(console.error);
     //what my bots doing
-    client.user.setActivity("how to be the best botbot",{ type: "Watching" })
-})//e
+
+})
 //when message create event
 client.on('messageCreate', (message) => {
 
