@@ -24,7 +24,7 @@ client.on('messageCreate', (message) => {
 
     if (message.content === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A'|| message.content === 'up, up, down, down, left, right, left, right, b, a'|| message.content === "Up Up Down Down Left Right Left Right B A"|| message.content === "up up down down left right left right b a") {
         message.reply({
-            content: 'hello '+ message.author.username,
+            content: 'your codes have no power hear '+ message.author.username,
             
         })
     }
