@@ -15,7 +15,7 @@ const client = new DiscordJS.Client({
 //ready message
 client.on('ready', () => {
     console.log('IT is ready the bot')
-    client.user.setActivity('how to be a bot',{type:'WATCHING'}).catch(console.error);
+    //client.user.setActivity('how to be a bot',{type:'WATCHING'}).catch(console.error);
     //what my bots doing
 
 })
