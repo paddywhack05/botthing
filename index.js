@@ -1,5 +1,5 @@
 import DiscordJS, { BaseGuild, Guild, GuildBan, Intents } from 'discord.js'
-const client = new DiscordJS.Client();
+//const client = new DiscordJS.Client();
 import dotenv from 'dotenv'
 dotenv.config()
 // what my discord bot needs from discord
