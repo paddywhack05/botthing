@@ -35,11 +35,8 @@ client.on('messageCreate', (message) => {
         })
     }
 
-    if (message.content=== "guild id"){
-        message.reply({
-            content : "here you go" + message.author.avatar + BaseGuild
-        })
-    }
+   
+    
 })
 
 
