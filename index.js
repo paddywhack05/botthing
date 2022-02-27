@@ -91,6 +91,19 @@ allowCrossPost: true,
 });
 
 }
+if (message.content === "!dankmeme"){ 
+    redditFetch({
+ subreddit:'dankmeme',
+ sort: 'top',
+ allowNSFW: false,
+allowCrossPost: true,
+ allowVideo: true,
+ allowModPost: true,
+}).then(post => {
+  message.channel.send(`here is a dank meme ${message.author} ${post.url}`);
+});
+
+}
 
    
 
@@ -109,7 +122,6 @@ allowCrossPost: true,
     }
 
 });
-
 
 
 
