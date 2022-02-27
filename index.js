@@ -7,7 +7,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 client.once('ready',() =>{
     console.log('its ready');
-    client.user.setActivity('how to be a bot', { type: 'WATCHING'});
+    client.user.setActivity('reddit memes', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
     });
@@ -37,6 +37,21 @@ client.on('messageCreate',message =>{
      });
     
     }
+    if (message.content === "!infuriating"){ 
+        redditFetch({
+     subreddit:'mildyinfuriating',
+     sort: 'top',
+     allowNSFW: false,
+ allowCrossPost: true,
+     allowVideo: true,
+     allowModPost: true,
+  }).then(post => {
+      message.channel.send(`here is a infurating thing ${message.author} ${post.url}`);
+  
+      
+  });
+ 
+ }
 
    
 
@@ -55,6 +70,7 @@ client.on('messageCreate',message =>{
     }
 
 });
+
 
 
 client.login(process.env.TOKEN)
