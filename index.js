@@ -46,12 +46,37 @@ client.on('messageCreate',message =>{
      allowVideo: true,
      allowModPost: true,
   }).then(post => {
-      message.channel.send(`here is a infurating thing ${message.author} ${post.url}`);
-  
-      
+      message.channel.send(`here is a infuriating thing ${message.author} ${post.url}`);
   });
  
  }
+ if (message.content === "!cat"){ 
+    redditFetch({
+ subreddit:'cats',
+ sort: 'top',
+ allowNSFW: false,
+allowCrossPost: true,
+ allowVideo: true,
+ allowModPost: true,
+}).then(post => {
+  message.channel.send(`here is a cat ${message.author} ${post.url}`);
+});
+
+}
+
+if (message.content === "!dog"){ 
+    redditFetch({
+ subreddit:'dogimages',
+ sort: 'top',
+ allowNSFW: false,
+allowCrossPost: true,
+ allowVideo: true,
+ allowModPost: true,
+}).then(post => {
+  message.channel.send(`here is a dog ${message.author} ${post.url}`);
+});
+
+}
 
    
 
