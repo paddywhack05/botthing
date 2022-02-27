@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const redditFetch = require('reddit-fetch/src/redditFetch');
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] }); 
 
@@ -21,6 +22,22 @@ client.on('messageCreate',message =>{
     if(message.author.bot){
         return;
     }
+    if (message.content === "!meme"){ 
+           redditFetch({
+        subreddit:'memes',
+        sort: 'top',
+        allowNSFW: false,
+    allowCrossPost: true,
+        allowVideo: true,
+        allowModPost: true,
+     }).then(post => {
+         message.channel.send(`here is a meme ${message.author} ${post.url}`);
+     
+         
+     });
+    
+    }
+
    
 
     if (message.content === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A'|| message.content === 'up, up, down, down, left, right, left, right, b, a'|| message.content === "Up Up Down Down Left Right Left Right B A"|| message.content === "up up down down left right left right b a") {
