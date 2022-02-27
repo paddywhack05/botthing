@@ -78,6 +78,20 @@ allowCrossPost: true,
 
 }
 
+if (message.content === "!minecraft"){ 
+    redditFetch({
+ subreddit:'Minecraft',
+ sort: 'top',
+ allowNSFW: false,
+allowCrossPost: true,
+ allowVideo: true,
+ allowModPost: true,
+}).then(post => {
+  message.channel.send(`here is a minecraft thing ${message.author} ${post.url}`);
+});
+
+}
+
    
 
     if (message.content === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A'|| message.content === 'up, up, down, down, left, right, left, right, b, a'|| message.content === "Up Up Down Down Left Right Left Right B A"|| message.content === "up up down down left right left right b a") {
@@ -95,6 +109,7 @@ allowCrossPost: true,
     }
 
 });
+
 
 
 
