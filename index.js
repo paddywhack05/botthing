@@ -104,7 +104,12 @@ allowCrossPost: true,
 });
 
 }
-
+if (message.content === '!commands') {
+    message.reply({
+        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme',
+        
+    })
+}
    
 
     if (message.content === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A'|| message.content === 'up, up, down, down, left, right, left, right, b, a'|| message.content === "Up Up Down Down Left Right Left Right B A"|| message.content === "up up down down left right left right b a") {
@@ -122,7 +127,6 @@ allowCrossPost: true,
     }
 
 });
-
 
 
 client.login(process.env.TOKEN)
