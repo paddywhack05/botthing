@@ -104,9 +104,23 @@ allowCrossPost: true,
 });
 
 }
+
+if (message.content === "!rap"){ 
+    redditFetch({
+ subreddit:'raplyrics',
+ sort: 'top',
+ allowNSFW: false,
+allowCrossPost: true,
+ allowVideo: true,
+ allowModPost: true,
+}).then(post => {
+  message.channel.send(`here is a rap ${message.author} ${post.selftext}${post.url}`);
+});
+
+}
 if (message.content === '!commands') {
     message.reply({
-        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme',
+        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme !rap',
         
     })
 }
@@ -127,6 +141,7 @@ if (message.content === '!commands') {
     }
 
 });
+
 
 
 client.login(process.env.TOKEN)
