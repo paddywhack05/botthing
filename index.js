@@ -46,7 +46,7 @@ client.on('messageCreate',message =>{
      allowVideo: true,
      allowModPost: true,
   }).then(post => {
-      message.channel.send(`here is a infuriating thing ${message.author} ${post.url}`);
+      message.channel.send(`here is a infuriating thing ${message.author}${post.thumbnail}${post.selftext}${post.url}`);
   });
  
  }
