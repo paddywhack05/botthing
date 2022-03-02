@@ -114,7 +114,7 @@ allowCrossPost: true,
  allowVideo: true,
  allowModPost: true,
 }).then(post => {
-  message.channel.send(`here is a rap ${message.author} ${post.selftext}${post.url}`);
+  message.channel.send(`here is a rap ${message.author} ${post.selftext} ${post.url}`);
 });
 
 }
@@ -125,9 +125,9 @@ if (message.content === "!ukraine news"||message.content==="!Ukraine news"){
  allowNSFW: false,
 allowCrossPost: true,
  allowVideo: true,
- allowModPost: true,
+ allowModPost: false,
 }).then(post => {
-  message.channel.send(`here is ukraine news ${message.author} ${post.title}${post.selftext}${post.url}`);
+  message.channel.send(`here is ukraine news ${message.author} ${post.title} ${post.selftext} ${post.url}`);
 });
 
 }
@@ -142,13 +142,13 @@ allowCrossPost: true,
  allowModPost: false,
 }).then(post => {
     
-  message.channel.send(`here is a thing about ukraine ${message.author}${post.title} ${post.selftext}${post.url}`);
+  message.channel.send(`here is a thing about ukraine ${message.author} ${post.title} ${post.selftext} ${post.url}`);
 });
 
 }
 if (message.content === '!commands') {
     message.reply({
-        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme',
+        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme !ukraine !ukraine news',
         
     })
 }
