@@ -118,9 +118,37 @@ allowCrossPost: true,
 });
 
 }
+if (message.content === "!ukraine news"||message.content==="!Ukraine news"){ 
+    redditFetch({
+ subreddit:'UkraineWarReports',
+ sort: 'top',
+ allowNSFW: false,
+allowCrossPost: true,
+ allowVideo: true,
+ allowModPost: true,
+}).then(post => {
+  message.channel.send(`here is ukraine news ${message.author} ${post.title}${post.selftext}${post.url}`);
+});
+
+}
+
+if (message.content === "!ukraine"||message.content==="!Ukraine"){ 
+    redditFetch({
+ subreddit:'ukraine',
+ sort: 'top',
+ allowNSFW: false,
+allowCrossPost: true,
+ allowVideo: true,
+ allowModPost: false,
+}).then(post => {
+    
+  message.channel.send(`here is a thing about ukraine ${message.author}${post.title} ${post.selftext}${post.url}`);
+});
+
+}
 if (message.content === '!commands') {
     message.reply({
-        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme !rap',
+        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme',
         
     })
 }
