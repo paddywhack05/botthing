@@ -16,12 +16,12 @@ client.once('ready',() =>{
 
 
 client.on('messageCreate',message =>{
-    if(message.author.bot)return;
+ //   if(message.author.bot)return;
 
 
-    if(message.author.bot){
-        return;
-    }
+ //   if(message.author.bot){
+   //     return;
+   // }
     if (message.content === "!meme"){ 
            redditFetch({
         subreddit:'memes',
@@ -30,9 +30,16 @@ client.on('messageCreate',message =>{
     allowCrossPost: true,
         allowVideo: true,
         allowModPost: true,
+        
      }).then(post => {
-         message.channel.send(`here is a meme ${message.author} ${post.url}`);
-     
+         console.log(post);
+         if(post.upvote_ratio >= 0.90){
+            message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
+         }else {
+             message.channel.send(`im sorry but that meme has a ${post.upvote_ratio} upvote ratio and may be offensive please try again here is another`)
+             message.channel.send("!meme")
+         }
+      
          
      });
     
@@ -46,9 +53,15 @@ client.on('messageCreate',message =>{
      allowVideo: true,
      allowModPost: true,
   }).then(post => {
-      message.channel.send(`here is a infuriating thing ${message.author}${post.thumbnail}${post.selftext}${post.url}`);
-  });
- 
+      
+      if(post.upvote_ratio >= 0.90){
+        message.channel.send(`here is a infuriating thing ${message.author}  ${post.title} ${post.selftext} ${post.url}`);
+     }else {
+         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
+         message.channel.send("!infuriating")
+     }  
+ });
+  
  }
  if (message.content === "!cat"){ 
     redditFetch({
@@ -59,7 +72,13 @@ allowCrossPost: true,
  allowVideo: true,
  allowModPost: true,
 }).then(post => {
-  message.channel.send(`here is a cat ${message.author} ${post.url}`);
+ 
+    if(post.upvote_ratio >= 0.90){
+        message.channel.send(`here is a cat ${message.author} ${post.title} ${post.url}`);
+   }else {
+       message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
+       message.channel.send("!cat")
+   }  
 });
 
 }
@@ -73,7 +92,13 @@ allowCrossPost: true,
  allowVideo: true,
  allowModPost: true,
 }).then(post => {
-  message.channel.send(`here is a dog ${message.author} ${post.url}`);
+   
+    if(post.upvote_ratio >= 0.90){
+      message.channel.send(`here is a dog ${message.author} ${post.title} ${post.url}`);
+   }else {
+       message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
+       message.channel.send("!dog")
+   }  
 });
 
 }
@@ -87,9 +112,13 @@ allowCrossPost: true,
  allowVideo: true,
  allowModPost: true,
 }).then(post => {
-  message.channel.send(`here is a minecraft thing ${message.author} ${post.url}`);
-});
-
+    if(post.upvote_ratio >= 0.90){
+        message.channel.send(`here is a minecraft thing ${message.author} ${post.title} ${post.url}`);
+     }else {
+         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
+         message.channel.send("!minecraft")
+     }  
+  });
 }
 if (message.content === "!dankmeme"){ 
     redditFetch({
@@ -100,8 +129,13 @@ allowCrossPost: true,
  allowVideo: true,
  allowModPost: true,
 }).then(post => {
-  message.channel.send(`here is a dank meme ${message.author} ${post.url}`);
-});
+    if(post.upvote_ratio >= 0.90){
+        message.channel.send(`here is a dank meme ${message.author} ${post.title} ${post.url}`);
+     }else {
+         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
+         message.channel.send("!dankmeme")
+     }  
+  });
 
 }
 
@@ -114,21 +148,31 @@ allowCrossPost: true,
  allowVideo: true,
  allowModPost: true,
 }).then(post => {
-  message.channel.send(`here is a rap ${message.author} ${post.selftext} ${post.url}`);
-});
+    if(post.upvote_ratio >= 0.90){
+        message.channel.send(`here is a rap ${message.author} TITLE ${post.title} RAP ${post.selftext} ${post.url}`);
+     }else {
+         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
+         message.channel.send("!rap")
+     }  
+  });
 
 }
-if (message.content === "!ukraine news"||message.content==="!Ukraine news"){ 
+if (message.content === "!ukraine news"||message.content==="!Ukraine news"||message.content==="!ukrainenews"){ 
     redditFetch({
  subreddit:'UkraineWarReports',
  sort: 'top',
  allowNSFW: false,
 allowCrossPost: true,
  allowVideo: true,
- allowModPost: false,
+ allowModPost: true,
 }).then(post => {
-  message.channel.send(`here is ukraine news ${message.author} ${post.title} ${post.selftext} ${post.url}`);
-});
+    if(post.upvote_ratio >= 0.90){
+        message.channel.send(`here is news about ukraine ${message.author} ${post.title} ${post.selftext} ${post.url}`);
+     }else {
+         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and he may have betrayed glorious Ukrain with russian propaganda here is another`)
+         message.channel.send("!ukraine news")
+     }  
+  });
 
 }
 
@@ -142,8 +186,13 @@ allowCrossPost: true,
  allowModPost: false,
 }).then(post => {
     
-  message.channel.send(`here is a thing about ukraine ${message.author} ${post.title} ${post.selftext} ${post.url}`);
-});
+    if(post.upvote_ratio >= 0.90){
+        message.channel.send(`here is Ukraine thing ${message.author} ${post.title} ${post.selftext} ${post.url}`);
+     }else {
+         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and he may have betrayed glorious Ukrain with russian propaganda here is another`)
+         message.channel.send("!ukraine")
+     }  
+  });
 
 }
 if (message.content === '!commands') {
