@@ -22,7 +22,7 @@ client.on('messageCreate',message =>{
  //   if(message.author.bot){
    //     return;
    // }
-    if (message.content === "!meme"){ 
+    if (message.content.toLowerCase() === "!meme"){ 
            redditFetch({
         subreddit:'memes',
         sort: 'top',
@@ -44,7 +44,7 @@ client.on('messageCreate',message =>{
      });
     
     }
-    if (message.content === "!infuriating"){ 
+    if (message.content.toLowerCase() === "!infuriating"){ 
         redditFetch({
      subreddit:'mildyinfuriating',
      sort: 'top',
@@ -63,7 +63,7 @@ client.on('messageCreate',message =>{
  });
   
  }
- if (message.content === "!cat"){ 
+ if (message.content.toLowerCase() === "!cat"){ 
     redditFetch({
  subreddit:'cats',
  sort: 'top',
@@ -83,7 +83,7 @@ allowCrossPost: true,
 
 }
 
-if (message.content === "!dog"){ 
+if (message.content.toLowerCase() === "!dog"){ 
     redditFetch({
  subreddit:'dogimages',
  sort: 'top',
@@ -103,7 +103,7 @@ allowCrossPost: true,
 
 }
 
-if (message.content === "!minecraft"){ 
+if (message.content.toLowerCase() === "!minecraft"){ 
     redditFetch({
  subreddit:'Minecraft',
  sort: 'top',
@@ -120,7 +120,7 @@ allowCrossPost: true,
      }  
   });
 }
-if (message.content === "!dankmeme"){ 
+if (message.content.toLowerCase() === "!dankmeme"){ 
     redditFetch({
  subreddit:'dankmeme',
  sort: 'top',
@@ -139,7 +139,7 @@ allowCrossPost: true,
 
 }
 
-if (message.content === "!rap"){ 
+if (message.content.toLowerCase() === "!rap"){ 
     redditFetch({
  subreddit:'raplyrics',
  sort: 'top',
@@ -157,7 +157,7 @@ allowCrossPost: true,
   });
 
 }
-if (message.content === "!ukraine news"||message.content==="!Ukraine news"||message.content==="!ukrainenews"){ 
+if (message.content.toLowerCase() === "!ukraine news"||message.content.toLowerCase() ==="!ukrainenews"){ 
     redditFetch({
  subreddit:'UkraineWarReports',
  sort: 'top',
@@ -176,7 +176,7 @@ allowCrossPost: true,
 
 }
 
-if (message.content === "!ukraine"||message.content==="!Ukraine"){ 
+if (message.content.toLowerCase() === "!ukraine"){ 
     redditFetch({
  subreddit:'ukraine',
  sort: 'top',
@@ -195,7 +195,7 @@ allowCrossPost: true,
   });
 
 }
-if (message.content === '!commands') {
+if (message.content.toLowerCase() === '!commands') {
     message.reply({
         content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme !ukraine !ukraine news',
         
@@ -203,14 +203,14 @@ if (message.content === '!commands') {
 }
    
 
-    if (message.content === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A'|| message.content === 'up, up, down, down, left, right, left, right, b, a'|| message.content === "Up Up Down Down Left Right Left Right B A"|| message.content === "up up down down left right left right b a") {
+    if (message.content.toLowerCase() === 'up, up, down, down, left, right, left, right, b, a'|| message.content.toLowerCase === "up up down down left right left right b a") {
         message.reply({
             content: 'hello '+ message.author.username,
             content: 'your codes have no power hear '+ message.author.username,
             
         })
     }
-    if (message.content === 'hi bot'|| message.content === 'Hi bot') {
+    if (message.content.toLowerCase() === 'hi bot') {
         message.reply({
             content: 'hello '+ message.author.username,
             
@@ -218,6 +218,7 @@ if (message.content === '!commands') {
     }
 
 });
+
 
 
 
