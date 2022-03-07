@@ -63,6 +63,9 @@ client.on('messageCreate',message =>{
  });
   
  }
+ if (message.content.toLowerCase() === "!ring"){ 
+    message.reply ({content: "https://www.youtube.com/watch?v=Vk4KK-gh0FM"})
+}
  if (message.content.toLowerCase() === "!cat"){ 
     redditFetch({
  subreddit:'cats',
