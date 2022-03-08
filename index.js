@@ -7,21 +7,27 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 client.once('ready',() =>{
     console.log('its ready');
-    client.user.setActivity('reddit memes', { type: 'WATCHING'});
+    client.user.setActivity('how the hell buttons', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
     });
 });
 
 
+client.on("interactionCreate", async (interaction) => {
+    if (interaction.isButton()){
+        console.log(interaction);
+        if(interaction.customId==="e"){
+        interaction.reply({content: `${interaction.user.tag} https://www.reddit.com/r/memes/comments/t9bm76/love_story_the_czar_and_his_table/`})
 
+        }
+    }
+})
 client.on('messageCreate',message =>{
- //   if(message.author.bot)return;
+ 
+  
+   // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
 
-
- //   if(message.author.bot){
-   //     return;
-   // }
     if (message.content.toLowerCase() === "!meme"){ 
            redditFetch({
         subreddit:'memes',
@@ -34,16 +40,37 @@ client.on('messageCreate',message =>{
      }).then(post => {
          console.log(post);
          if(post.upvote_ratio >= 0.90){
+     
             message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
+         
          }else {
              message.channel.send(`im sorry but that meme has a ${post.upvote_ratio} upvote ratio and may be offensive please try again here is another`)
              message.channel.send("!meme")
          }
-      
+     
          
      });
     
     }
+    if (message.content.toLowerCase() ==="!button"){
+       
+        const row = new Discord.MessageActionRow().addComponents(
+            new Discord.MessageButton()
+            .setCustomId("e")
+            .setLabel("click for meme of the day")
+            .setStyle("SUCCESS"),
+            new Discord.MessageButton()
+            .setStyle("LINK")
+            .setURL("https://www.reddit.com/r/memes/")
+            .setLabel("r/memes")
+        );
+        message.channel.send({content: "meme of the day", components:[row]});
+    }
+    
+    if (message.content.toLowerCase() === "!ring"){ 
+        message.reply ({content: "https://www.youtube.com/watch?v=Vk4KK-gh0FM"})
+    }
+
     if (message.content.toLowerCase() === "!infuriating"){ 
         redditFetch({
      subreddit:'mildyinfuriating',
@@ -63,9 +90,6 @@ client.on('messageCreate',message =>{
  });
   
  }
- if (message.content.toLowerCase() === "!ring"){ 
-    message.reply ({content: "https://www.youtube.com/watch?v=Vk4KK-gh0FM"})
-}
  if (message.content.toLowerCase() === "!cat"){ 
     redditFetch({
  subreddit:'cats',
