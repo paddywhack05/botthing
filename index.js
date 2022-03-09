@@ -18,7 +18,7 @@ client.on("interactionCreate", async (interaction) => {
     if (interaction.isButton()){
         console.log(interaction);
         if(interaction.customId==="e"){
-        interaction.reply({content: `${interaction.user.tag} https://www.reddit.com/r/memes/comments/t9bm76/love_story_the_czar_and_his_table/`})
+        interaction.reply({content: `${interaction.user.tag} https://www.reddit.com/r/memes/comments/ta5w62/my_momma_aint_raised_no_sinner/`})
 
         }
     }
