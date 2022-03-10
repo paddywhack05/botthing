@@ -1,9 +1,15 @@
 const Discord = require('discord.js');
 const redditFetch = require('reddit-fetch/src/redditFetch');
-
+const fs = require('fs');
+const hibot = require('./commands/hibot');
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] }); 
+client.commands = new Discord.Collection();
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+for (const file of commandFiles){
+    const command = require(`./commands/${file}`);
 
-
+    client.commands.set(command.name, command);
+}
 
 client.once('ready',() =>{
     console.log('its ready');
@@ -18,7 +24,7 @@ client.on("interactionCreate", async (interaction) => {
     if (interaction.isButton()){
         console.log(interaction);
         if(interaction.customId==="e"){
-        interaction.reply({content: `${interaction.user.tag} https://www.reddit.com/r/memes/comments/ta5w62/my_momma_aint_raised_no_sinner/`})
+        interaction.reply({content: `${interaction.user.tag} https://www.reddit.com/r/memes/comments/t9bm76/love_story_the_czar_and_his_table/`})
 
         }
     }
@@ -27,31 +33,10 @@ client.on('messageCreate',message =>{
  
   
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
-
-    if (message.content.toLowerCase() === "!meme"){ 
-           redditFetch({
-        subreddit:'memes',
-        sort: 'top',
-        allowNSFW: false,
-    allowCrossPost: true,
-        allowVideo: true,
-        allowModPost: true,
-        
-     }).then(post => {
-         console.log(post);
-         if(post.upvote_ratio >= 0.90){
-     
-            message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
-         
-         }else {
-             message.channel.send(`im sorry but that meme has a ${post.upvote_ratio} upvote ratio and may be offensive please try again here is another`)
-             message.channel.send("!meme")
-         }
-     
-         
-     });
-    
+    if (message.content.toLowerCase() ==="!meme"){
+        client.commands.get('meme').execute(message,client);
     }
+    
     if (message.content.toLowerCase() ==="!button"){
        
         const row = new Discord.MessageActionRow().addComponents(
@@ -68,180 +53,47 @@ client.on('messageCreate',message =>{
     }
     
     if (message.content.toLowerCase() === "!ring"){ 
-        message.reply ({content: "https://www.youtube.com/watch?v=Vk4KK-gh0FM"})
+       client.commands.get('ring').execute(message,client);
     }
 
     if (message.content.toLowerCase() === "!infuriating"){ 
-        redditFetch({
-     subreddit:'mildyinfuriating',
-     sort: 'top',
-     allowNSFW: false,
- allowCrossPost: true,
-     allowVideo: true,
-     allowModPost: true,
-  }).then(post => {
-      
-      if(post.upvote_ratio >= 0.90){
-        message.channel.send(`here is a infuriating thing ${message.author}  ${post.title} ${post.selftext} ${post.url}`);
-     }else {
-         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
-         message.channel.send("!infuriating")
-     }  
- });
-  
+        client.commands.get('infuriating').execute(message,client);
  }
  if (message.content.toLowerCase() === "!cat"){ 
-    redditFetch({
- subreddit:'cats',
- sort: 'top',
- allowNSFW: false,
-allowCrossPost: true,
- allowVideo: true,
- allowModPost: true,
-}).then(post => {
- 
-    if(post.upvote_ratio >= 0.90){
-        message.channel.send(`here is a cat ${message.author} ${post.title} ${post.url}`);
-   }else {
-       message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
-       message.channel.send("!cat")
-   }  
-});
-
+    client.commands.get('cat').execute(message,client);
 }
 
 if (message.content.toLowerCase() === "!dog"){ 
-    redditFetch({
- subreddit:'dogimages',
- sort: 'top',
- allowNSFW: false,
-allowCrossPost: true,
- allowVideo: true,
- allowModPost: true,
-}).then(post => {
-   
-    if(post.upvote_ratio >= 0.90){
-      message.channel.send(`here is a dog ${message.author} ${post.title} ${post.url}`);
-   }else {
-       message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
-       message.channel.send("!dog")
-   }  
-});
-
+client.commands.get('dog').execute(message,client);
 }
 
 if (message.content.toLowerCase() === "!minecraft"){ 
-    redditFetch({
- subreddit:'Minecraft',
- sort: 'top',
- allowNSFW: false,
-allowCrossPost: true,
- allowVideo: true,
- allowModPost: true,
-}).then(post => {
-    if(post.upvote_ratio >= 0.90){
-        message.channel.send(`here is a minecraft thing ${message.author} ${post.title} ${post.url}`);
-     }else {
-         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
-         message.channel.send("!minecraft")
-     }  
-  });
+client.commands.get('minecraft').execute(message,client);
 }
 if (message.content.toLowerCase() === "!dankmeme"){ 
-    redditFetch({
- subreddit:'dankmeme',
- sort: 'top',
- allowNSFW: false,
-allowCrossPost: true,
- allowVideo: true,
- allowModPost: true,
-}).then(post => {
-    if(post.upvote_ratio >= 0.90){
-        message.channel.send(`here is a dank meme ${message.author} ${post.title} ${post.url}`);
-     }else {
-         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
-         message.channel.send("!dankmeme")
-     }  
-  });
-
+client.commands.get('dankmeme').execute(message,client);
 }
 
 if (message.content.toLowerCase() === "!rap"){ 
-    redditFetch({
- subreddit:'raplyrics',
- sort: 'top',
- allowNSFW: false,
-allowCrossPost: true,
- allowVideo: true,
- allowModPost: true,
-}).then(post => {
-    if(post.upvote_ratio >= 0.90){
-        message.channel.send(`here is a rap ${message.author} TITLE ${post.title} RAP ${post.selftext} ${post.url}`);
-     }else {
-         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
-         message.channel.send("!rap")
-     }  
-  });
-
+client.commands.get('rap').execute(message,client);
 }
 if (message.content.toLowerCase() === "!ukraine news"||message.content.toLowerCase() ==="!ukrainenews"){ 
-    redditFetch({
- subreddit:'UkraineWarReports',
- sort: 'top',
- allowNSFW: false,
-allowCrossPost: true,
- allowVideo: true,
- allowModPost: true,
-}).then(post => {
-    if(post.upvote_ratio >= 0.90){
-        message.channel.send(`here is news about ukraine ${message.author} ${post.title} ${post.selftext} ${post.url}`);
-     }else {
-         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and he may have betrayed glorious Ukrain with russian propaganda here is another`)
-         message.channel.send("!ukraine news")
-     }  
-  });
-
+client.commands.get('ukrainenews').execute(message,client);
 }
 
 if (message.content.toLowerCase() === "!ukraine"){ 
-    redditFetch({
- subreddit:'ukraine',
- sort: 'top',
- allowNSFW: false,
-allowCrossPost: true,
- allowVideo: true,
- allowModPost: false,
-}).then(post => {
-    
-    if(post.upvote_ratio >= 0.90){
-        message.channel.send(`here is Ukraine thing ${message.author} ${post.title} ${post.selftext} ${post.url}`);
-     }else {
-         message.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and he may have betrayed glorious Ukrain with russian propaganda here is another`)
-         message.channel.send("!ukraine")
-     }  
-  });
-
+    client.commands.get('ukraine').execute(message,client);
 }
 if (message.content.toLowerCase() === '!commands') {
-    message.reply({
-        content: 'The commands are !meme !infuriating !cat !dog !minecraft !dankmeme !ukraine !ukraine news',
-        
-    })
+client.commands.get('command').execute(message,client);
 }
    
 
     if (message.content.toLowerCase() === 'up, up, down, down, left, right, left, right, b, a'|| message.content.toLowerCase === "up up down down left right left right b a") {
-        message.reply({
-            content: 'hello '+ message.author.username,
-            content: 'your codes have no power hear '+ message.author.username,
-            
-        })
+    client.commands.get('konamicode').execute(message,client);
     }
     if (message.content.toLowerCase() === 'hi bot') {
-        message.reply({
-            content: 'hello '+ message.author.username,
-            
-        })
+    client.commands.get('hibot').execute(message,client);
     }
 
 });
