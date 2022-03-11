@@ -94,33 +94,43 @@ client.on("interactionCreate", async (interaction) => {
 
     if (interaction.isCommand()){
         if(interaction.commandName==='ukrainenews'){
+            interaction.reply({content: 'loading ukraine news...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukrainenewsslash').execute(interaction,client);
         }
         if(interaction.commandName==='rap'){
+            interaction.reply({content: 'loading rap...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('rapslash').execute(interaction,client);
         }
         if(interaction.commandName==='minecraft'){
+            interaction.reply({content: 'loading minecraft...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('minecraftslash').execute(interaction,client);
         }
         if(interaction.commandName==='dog'){
+            interaction.reply({content: 'loading dog...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dogslash').execute(interaction,client);
         }
         if(interaction.commandName==='ring'){
+            interaction.reply({content: 'ringing...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ringslash').execute(interaction,client);
         }
         if(interaction.commandName === 'ukraine'){
+            interaction.reply({content: 'loading ukraine stuff...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukraineslash').execute(interaction,client);
         }
         if(interaction.commandName === 'cat'){
+            interaction.reply({content: 'loading cat...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('catslash').execute(interaction,client);
         }
         if(interaction.commandName === 'infuriating'){
+            interaction.reply({content: 'loading something infuriating...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('infuriatingslash').execute(interaction,client);
         }
         if(interaction.commandName === 'dankmeme'){
+            interaction.reply({content: 'loading dankmeme...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dankmemeslash').execute(interaction,client);
         }
         if (interaction.commandName === 'meme'){
+            interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
              client.commands.get('memeslash').execute(interaction,client);
         }
         if (interaction.commandName ==='echo'){
