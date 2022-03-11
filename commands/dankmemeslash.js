@@ -1,8 +1,8 @@
 //const { Interaction } = require('discord.js');
 const redditFetch = require('reddit-fetch/src/redditFetch');
 module.exports= {
-name: "dankmeme",
-description:"dankmeme command",
+name: "dankmemeslash",
+description:"dankmemeslash command",
 execute(interaction){
         redditFetch({
      subreddit:'dankmeme',
