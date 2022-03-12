@@ -214,4 +214,4 @@ client.commands.get('command').execute(message,client);
 
 
 
-client.login(process.env.TOKEN)
+client.login('OTE2NzQzODY2OTE1Mzg5NTQy.YaumQg.WaN1promTHKAc1WpqKF_efEizMQ')
