@@ -196,7 +196,7 @@ client.commands.get('ukrainenews').execute(message,client);
 if (message.content.toLowerCase() === "!ukraine"){ 
     client.commands.get('ukraine').execute(message,client);
 }
-if (message.content.toLowerCase() === '!commands') {
+if (message.content.toLowerCase() === '!commands'||message.content.toLowerCase()=== '!help') {
 client.commands.get('command').execute(message,client);
 }
 
