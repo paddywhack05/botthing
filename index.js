@@ -8,6 +8,8 @@ const dog = require('./commands/dog');
 const dogslash = require('./commands/dogslash');
 const minecraft = require('./commands/minecraft');
 const rap = require('./commands/rap');
+require('dotenv').config()
+
 
 
 //const meme = require('./commands/meme');
@@ -151,7 +153,6 @@ client.on('messageCreate', async message =>{
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
-  
     }
     
     if (message.content.toLowerCase() ==="!button"){
