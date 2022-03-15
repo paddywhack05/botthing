@@ -154,6 +154,9 @@ client.on('messageCreate', async message =>{
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
     }
+    if (message.content.toLowerCase() ==="do a barrel roll"){
+        client.commands.get('roll').execute(message,client);
+    }
     
     if (message.content.toLowerCase() ==="!button"){
         const row = new Discord.MessageActionRow().addComponents(
