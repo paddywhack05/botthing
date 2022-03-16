@@ -207,8 +207,6 @@ if (message.content.toLowerCase() === '!commands'||message.content.toLowerCase()
 client.commands.get('command').execute(message,client);
 }
 
-   
-
     if (message.content.toLowerCase() === 'up, up, down, down, left, right, left, right, b, a'|| message.content.toLowerCase === "up up down down left right left right b a") {
     client.commands.get('konamicode').execute(message,client);
     }
