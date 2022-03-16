@@ -171,6 +171,9 @@ client.on('messageCreate', async message =>{
     if (message.content.toLowerCase() === "!ring"){ 
        client.commands.get('ring').execute(message,client);
     }
+    if (message.content.toLowerCase() === "!rickroll"){ 
+        client.commands.get('rickroll').execute(message,client);
+     }
 
     if (message.content.toLowerCase() === "!infuriating"){ 
         client.commands.get('infuriating').execute(message,client);
