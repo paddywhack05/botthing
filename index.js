@@ -131,9 +131,6 @@ client.on("interactionCreate", async (interaction) => {
             interaction.reply({content: 'loading dankmeme...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dankmemeslash').execute(interaction,client);
         }
-        if (message.content.toLowerCase() === "!dice"){ 
-            client.commands.get('dice').execute(message,client);
-        }
         if (interaction.commandName === 'meme'){
             interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
              client.commands.get('memeslash').execute(interaction,client);
@@ -159,6 +156,10 @@ client.on('messageCreate', async message =>{
     }
     if (message.content.toLowerCase() ==="do a barrel roll"){
         client.commands.get('roll').execute(message,client);
+    }
+
+    if (message.content.toLowerCase() === "!dice"){ 
+        client.commands.get('dice').execute(message,client);
     }
     
     if (message.content.toLowerCase() ==="!button"){
