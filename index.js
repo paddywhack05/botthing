@@ -178,6 +178,9 @@ client.on('messageCreate', async message =>{
     if (message.content.toLowerCase() === "!infuriating"){ 
         client.commands.get('infuriating').execute(message,client);
  }
+ if (message.content.toLowerCase() === "!dice"){ 
+    client.commands.get('dice').execute(message,client);
+}
  if (message.content.toLowerCase() === "!cat"){ 
     client.commands.get('cat').execute(message,client);
 }
