@@ -24,6 +24,10 @@ for (const file of commandFiles){
 
 client.once('ready', async() =>{
     console.log('its ready');
+    const dice ={
+        name:'dice',
+        description:'rolls dice',
+       }
     const ukrainenews ={
         name:'ukrainenews',
         description:'news about ukraine',
@@ -85,6 +89,7 @@ client.once('ready', async() =>{
     const minecraftslash = await client.application?.commands.create(minecraft);
     const rapslash = await client.application?.commands.create(rap)
     const ukrainenewsslash = await client.application?.commands.create(ukrainenews)
+    const diceslash = await client.application?.commands.create(dice)
     client.user.setActivity('how the hell buttons', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
@@ -98,6 +103,9 @@ client.on("interactionCreate", async (interaction) => {
         if(interaction.commandName==='ukrainenews'){
             interaction.reply({content: 'loading ukraine news...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukrainenewsslash').execute(interaction,client);
+        }
+        if(interaction.commandName==='dice'){
+            client.commands.get('diceslash').execute(interaction,client);
         }
         if(interaction.commandName==='rap'){
             interaction.reply({content: 'loading rap...', ephemeral: false}).then(interaction.deleteReply())
