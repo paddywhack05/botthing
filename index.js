@@ -8,12 +8,12 @@ const dog = require('./commands/dog');
 const dogslash = require('./commands/dogslash');
 const minecraft = require('./commands/minecraft');
 const rap = require('./commands/rap');
-require('dotenv').config()
-
+const dice = require('./commands/dice');
+const hack = require('./commands/hack');
 
 
 //const meme = require('./commands/meme');
-const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] }); 
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"] }); 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles){
@@ -24,10 +24,18 @@ for (const file of commandFiles){
 
 client.once('ready', async() =>{
     console.log('its ready');
-    const dice ={
-        name:'dice',
-        description:'rolls dice',
-       }
+   const dice ={
+    name:'dice',
+    description:'rolls dice',
+   }
+   const help ={
+    name:'help',
+    description:'help command',
+   }
+   const hack ={
+       name:'hack',
+       description:'hacking but way better than dank memer hacking with an actual script',
+   }
     const ukrainenews ={
         name:'ukrainenews',
         description:'news about ukraine',
@@ -90,6 +98,8 @@ client.once('ready', async() =>{
     const rapslash = await client.application?.commands.create(rap)
     const ukrainenewsslash = await client.application?.commands.create(ukrainenews)
     const diceslash = await client.application?.commands.create(dice)
+    const hackslash = await client.application?.commands.create(hack)
+    const helpslash = await client.application?.commands.create(help)
     client.user.setActivity('how the hell buttons', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
@@ -100,6 +110,12 @@ client.once('ready', async() =>{
 client.on("interactionCreate", async (interaction) => {
 
     if (interaction.isCommand()){
+        if(interaction.commandName==='help'){
+            client.commands.get('helpslash').execute(interaction,client);
+        }
+        if(interaction.commandName==='hack'){
+            client.commands.get('hackslash').execute(interaction,client);
+        }
         if(interaction.commandName==='ukrainenews'){
             interaction.reply({content: 'loading ukraine news...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukrainenewsslash').execute(interaction,client);
@@ -161,13 +177,10 @@ client.on('messageCreate', async message =>{
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
+  
     }
-    if (message.content.toLowerCase() ==="do a barrel roll"){
-        client.commands.get('roll').execute(message,client);
-    }
-
-    if (message.content.toLowerCase() === "!dice"){ 
-        client.commands.get('dice').execute(message,client);
+    if (message.content.toLowerCase() ==="!rickroll"){
+        client.commands.get('rickroll').execute(message,client);
     }
     
     if (message.content.toLowerCase() ==="!button"){
@@ -183,14 +196,24 @@ client.on('messageCreate', async message =>{
     if (message.content.toLowerCase() === "!ring"){ 
        client.commands.get('ring').execute(message,client);
     }
-    if (message.content.toLowerCase() === "!rickroll"){ 
-        client.commands.get('rickroll').execute(message,client);
+    
+    if (message.content.toLowerCase() === "!hack"){
+        client.commands.get('hack').execute(message,client);
+    }
+    if (message.content.toLowerCase() === "cat exspectedpasses.txt"){
+        message.channel.send("d3ad16e86a2bf2c2ad74cc177ae69025: I cant belive you looked it up")
+    }
+
+    if (message.content.toLowerCase() === "!dice"){ 
+        client.commands.get('dice').execute(message,client);
+    }
+    if (message.content.toLowerCase() === "do a barrel roll"){ 
+        client.commands.get('roll').execute(message,client);
      }
 
     if (message.content.toLowerCase() === "!infuriating"){ 
         client.commands.get('infuriating').execute(message,client);
  }
- 
  if (message.content.toLowerCase() === "!cat"){ 
     client.commands.get('cat').execute(message,client);
 }
@@ -216,9 +239,11 @@ client.commands.get('ukrainenews').execute(message,client);
 if (message.content.toLowerCase() === "!ukraine"){ 
     client.commands.get('ukraine').execute(message,client);
 }
-if (message.content.toLowerCase() === '!commands'||message.content.toLowerCase()=== '!help') {
+if (message.content.toLowerCase() === '!commands'||message.content.toLowerCase()==='!help') {
 client.commands.get('command').execute(message,client);
 }
+
+   
 
     if (message.content.toLowerCase() === 'up, up, down, down, left, right, left, right, b, a'|| message.content.toLowerCase === "up up down down left right left right b a") {
     client.commands.get('konamicode').execute(message,client);
