@@ -10,6 +10,7 @@ const minecraft = require('./commands/minecraft');
 const rap = require('./commands/rap');
 const dice = require('./commands/dice');
 const hack = require('./commands/hack');
+const dcsl = require('./commands/dcsl');
 
 
 //const meme = require('./commands/meme');
@@ -24,6 +25,10 @@ for (const file of commandFiles){
 
 client.once('ready', async() =>{
     console.log('its ready');
+    const dcsl={
+        name:'dcsl',
+        description:'dcsl info and songs',
+    }
    const dice ={
     name:'dice',
     description:'rolls dice',
@@ -100,6 +105,7 @@ client.once('ready', async() =>{
     const diceslash = await client.application?.commands.create(dice)
     const hackslash = await client.application?.commands.create(hack)
     const helpslash = await client.application?.commands.create(help)
+    const dcslslash = await client.application?.commands.create(dcsl)
     client.user.setActivity('how the hell buttons', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
@@ -108,8 +114,12 @@ client.once('ready', async() =>{
 
 
 client.on("interactionCreate", async (interaction) => {
-
+    
     if (interaction.isCommand()){
+
+        if(interaction.commandName==='dcsl'){
+            client.commands.get('dcslslash').execute(interaction,client);
+        }
         if(interaction.commandName==='help'){
             client.commands.get('helpslash').execute(interaction,client);
         }
@@ -175,6 +185,9 @@ client.on('messageCreate', async message =>{
  
  
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
+   if (message.content.toLowerCase() === "!dcsl"){
+       client.commands.get('dcsl').execute(message,client);
+    }
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
   
