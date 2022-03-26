@@ -219,6 +219,7 @@ client.on('messageCreate', async message =>{
         message.channel.send("d3ad16e86a2bf2c2ad74cc177ae69025: I cant belive you looked it up")
     }
 
+
     if (message.content.toLowerCase() === "!dice"){ 
         client.commands.get('dice').execute(message,client);
     }
