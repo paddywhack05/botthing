@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const redditFetch = require('reddit-fetch/src/redditFetch');
+require('dotenv').config();
 const fs = require('fs');
 const { description } = require('./commands/ukrainenews');
 const cat = require('./commands/cat');
@@ -11,6 +12,7 @@ const rap = require('./commands/rap');
 const dice = require('./commands/dice');
 const hack = require('./commands/hack');
 const dcsl = require('./commands/dcsl');
+
 
 
 //const meme = require('./commands/meme');
@@ -270,4 +272,4 @@ client.commands.get('command').execute(message,client);
 
 
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
