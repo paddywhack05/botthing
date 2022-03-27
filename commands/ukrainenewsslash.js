@@ -3,6 +3,8 @@ module.exports= {
 name: "ukrainenewsslash",
 description:"ukrainenewsslash command",
 execute(interaction){
+    fetch();
+    function fetch(){
     redditFetch({
         subreddit:'UkraineWarReports',
         sort: 'top',
@@ -15,8 +17,7 @@ execute(interaction){
                console.log("it works i guess" + interaction.user.tag);
                interaction.channel.send(`here is news about ukraine ${interaction.user.tag} ${post.title} ${post.selftext} ${post.url}`);
             }else {
-                interaction.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and he may have betrayed glorious Ukrain with russian propaganda here is another`)
-                interaction.channel.send("!ukraine news")
+                fetch();
             }  
          });
-}}
+}}}

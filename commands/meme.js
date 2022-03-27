@@ -3,6 +3,8 @@ module.exports= {
 name: "meme",
 description:"meme command",
 execute(message){
+    fetch();
+    function fetch(){
     redditFetch({
         subreddit:'memes',
         sort: 'top',
@@ -18,12 +20,12 @@ execute(message){
             message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
          
          }else {
-             message.channel.send(`im sorry but that meme has a ${post.upvote_ratio} upvote ratio and may be offensive please try again here is another`)
-             message.channel.send("!meme")
+            fetch();
          }
      
          
      });
     
+}
 }
 }

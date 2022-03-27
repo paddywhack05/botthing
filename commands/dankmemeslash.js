@@ -4,6 +4,8 @@ module.exports= {
 name: "dankmemeslash",
 description:"dankmemeslash command",
 execute(interaction){
+    fetch();
+    function fetch(){
         redditFetch({
      subreddit:'dankmeme',
      sort: 'top',
@@ -12,11 +14,11 @@ execute(interaction){
      allowVideo: true,
      allowModPost: true,
     }).then(post => {
+        console.log(post.upvote_ratio)
         if(post.upvote_ratio >= 0.90){
             interaction.channel.send(`here is a dank meme ${interaction.user.tag} ${post.title} ${post.url}`);
          }else {
-             interaction.channel.send(`im sorry but that post has a ${post.upvote_ratio} upvote ratio and may be offensive here is another`)
-             interaction.channel.send("!dankmeme")
+             fetch();
          }  
       });
-}}
+}}}
