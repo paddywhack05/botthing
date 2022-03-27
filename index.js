@@ -27,6 +27,11 @@ for (const file of commandFiles){
 
 client.once('ready', async() =>{
     console.log('its ready');
+    
+    const ascii={
+        name:'ascii',
+        description:'posts an ascii image',
+    }
     const dcsl={
         name:'dcsl',
         description:'dcsl info and songs',
@@ -108,6 +113,7 @@ client.once('ready', async() =>{
     const hackslash = await client.application?.commands.create(hack)
     const helpslash = await client.application?.commands.create(help)
     const dcslslash = await client.application?.commands.create(dcsl)
+    const asciislash = await client.application?.commands.create(ascii)
     client.user.setActivity('how the hell buttons', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
@@ -121,6 +127,9 @@ client.on("interactionCreate", async (interaction) => {
 
         if(interaction.commandName==='dcsl'){
             client.commands.get('dcslslash').execute(interaction,client);
+        }
+        if(interaction.commandName==='ascii'){
+            client.commands.get('asciislash').execute(interaction,client);
         }
         if(interaction.commandName==='help'){
             client.commands.get('helpslash').execute(interaction,client);
@@ -208,6 +217,10 @@ client.on('messageCreate', async message =>{
         message.channel.send({content: "meme of the day", components:[row]});
     }
     
+    if (message.content.toLowerCase() === "!ascii"){ 
+        client.commands.get('ascii').execute(message,client);
+     }
+
     if (message.content.toLowerCase() === "!ring"){ 
        client.commands.get('ring').execute(message,client);
     }
