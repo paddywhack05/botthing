@@ -1,3 +1,4 @@
+const{MessageActionRow,MessageButton} = require('discord.js');
 const Discord = require('discord.js');
 const redditFetch = require('reddit-fetch/src/redditFetch');
 module.exports= {
@@ -26,7 +27,14 @@ execute(message){
             //.addField('field test','field description test')
             .setImage(`${post.url}`)
             .setFooter(`💬 ${post.num_comments} 👍 ${post.ups}`)
-            message.channel.send({ embeds: [embed] });
+            const row = new Discord.MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                .setCustomId(`dog`)
+                .setLabel(`Next Dog`)
+                .setStyle("SUCCESS"),
+            )
+         message.channel.send({ embeds: [embed],components: [row] });
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
           }else {
               fetch();
