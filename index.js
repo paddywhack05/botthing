@@ -114,7 +114,7 @@ client.once('ready', async() =>{
     const helpslash = await client.application?.commands.create(help)
     const dcslslash = await client.application?.commands.create(dcsl)
     const asciislash = await client.application?.commands.create(ascii)
-    client.user.setActivity('how the hell buttons', { type: 'WATCHING'});
+    client.user.setActivity('Me destroy buttons in discord.js ye thats right buttons done', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
     });
