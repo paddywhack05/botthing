@@ -15,7 +15,7 @@ execute(interaction){
         allowVideo: true,
         allowModPost: true,
        }).then(async post => {
-        
+        if(post.is_video){fetch();return;}
            if(post.upvote_ratio >= 0.90){
             const embed = new Discord.MessageEmbed()
             .setColor('RED')
