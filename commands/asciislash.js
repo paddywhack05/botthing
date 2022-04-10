@@ -13,7 +13,7 @@ module.exports = {
       const ascii1 = Math.floor(Math.random() * 6) + 1;
      
       
-      // array's index starts at zero
+      // array's index starts at 0
       const url1 = ascii[ascii1 - 1];
      
   
