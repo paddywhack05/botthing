@@ -16,13 +16,21 @@ execute(interaction){
         allowModPost: false,
        }).then(async post => {
            console.log(post.length);
-           if (post.selftext.length >= 1999){ 
+           if (post.selftext.length >= 256){ 
            fetch();
         return; }
+        if (post.title.length >= 256){ 
+            fetch();
+         return; }
            if(post.upvote_ratio >= 0.90){
-            var anser = post.ups / post.upvote_ratio/100;
-            console.log(anser);
-           var final = Math.round(anser);
+           // var anser = post.ups / post.upvote_ratio/100;
+           // console.log(anser);
+           //var final = Math.round(anser);
+           var anser = 1.00-post.upvote_ratio;
+           console.log(anser);
+           var dwn = anser * post.ups;
+           console.log(final);
+           var final = Math.round(dwn);
             const embed = new Discord.MessageEmbed()
             .setColor('RED')
             .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))

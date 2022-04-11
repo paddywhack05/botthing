@@ -16,9 +16,11 @@ execute(message,client){
         allowModPost: true,
         
      }).then(post => {
-        var anser = post.ups / post.upvote_ratio/100;
+        var anser = 1.00-post.upvote_ratio;
         console.log(anser);
-       var final = Math.round(anser);
+        var dwn = anser * post.ups;
+        console.log(final);
+        var final = Math.round(dwn);
          console.log(post);
          if(post.is_video){fetch();return;}
          if(post.upvote_ratio >= 0.90){

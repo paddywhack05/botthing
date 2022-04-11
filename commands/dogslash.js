@@ -17,9 +17,11 @@ execute(interaction){
        }).then(async post => {
         if(post.is_video){fetch();return;}
            if(post.upvote_ratio >= 0.90){
-            var anser = post.ups / post.upvote_ratio/100;
-            console.log(anser);
-           var final = Math.round(anser);
+            var anser = 1.00-post.upvote_ratio;
+           console.log(anser);
+           var dwn = anser * post.ups;
+           console.log(final);
+           var final = Math.round(dwn);
             const embed = new Discord.MessageEmbed()
             .setColor('RED')
             .setAuthor(`${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }))
