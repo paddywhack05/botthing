@@ -16,6 +16,9 @@ execute(message,client){
         allowModPost: true,
         
      }).then(post => {
+        var anser = post.ups / post.upvote_ratio/100;
+        console.log(anser);
+       var final = Math.round(anser);
          console.log(post);
          if(post.is_video){fetch();return;}
          if(post.upvote_ratio >= 0.90){
@@ -28,7 +31,7 @@ execute(message,client){
             .setThumbnail(`${post.url}`)
             //.addField('field test','field description test')
             .setImage(`${post.url}`)
-            .setFooter(`💬 ${post.num_comments} 👍 ${post.ups}`)
+            .setFooter(`💬 ${post.num_comments} 👍 ${post.ups} 👎 ${final}`)
             const row = new Discord.MessageActionRow()
             .addComponents(
                 new MessageButton()
@@ -36,7 +39,7 @@ execute(message,client){
                 .setLabel(`Next Meme`)
                 .setStyle("SUCCESS"),
             )
-         message.channel.send({ embeds: [embed],components: [row] });
+         message.reply({ embeds: [embed],components: [row] });
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
          
          }else {

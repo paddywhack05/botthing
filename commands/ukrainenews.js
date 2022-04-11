@@ -19,6 +19,9 @@ execute(message){
             fetch();
          return; }
            if(post.upvote_ratio >= 0.90){
+            var anser = post.ups / post.upvote_ratio/100;
+            console.log(anser);
+           var final = Math.round(anser);
             const embed = new Discord.MessageEmbed()
             .setColor('RED')
             .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
@@ -28,7 +31,7 @@ execute(message){
             .setThumbnail(`${post.url}`)
             //.addField('field test','field description test')
             .setImage(`${post.url}`)
-            .setFooter(`💬 ${post.num_comments} 👍 ${post.ups}`)
+            .setFooter(`💬 ${post.num_comments} 👍 ${post.ups}  👎 ${final}`)
             const row = new Discord.MessageActionRow()
             .addComponents(
                 new MessageButton()
