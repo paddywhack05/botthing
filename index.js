@@ -227,6 +227,7 @@ client.on('messageCreate', async message =>{
  
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
    if (message.content.toLowerCase() === "!dcsl"){
+       console.log(process.env.TOKEN);
        client.commands.get('dcsl').execute(message,client);
     }
     if (message.content.toLowerCase() ==="!meme"){
