@@ -23,6 +23,7 @@ execute(message,client){
         var final = Math.round(dwn);
          console.log(post);
          if(post.is_video){fetch();return;}
+         if(post.url.includes("gallery")){fetch();return;}
          if(post.upvote_ratio >= 0.90){
             const embed = new Discord.MessageEmbed()
             .setColor('RED')
