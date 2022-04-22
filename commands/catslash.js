@@ -8,7 +8,7 @@ execute(interaction,pages,time){
     fetch();
     function fetch(){
      redditFetch({
-    subreddit:'cats',
+    subreddit:'catpics',
     sort: 'top',
     allowNSFW: false,
    allowCrossPost: true,
