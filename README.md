@@ -3,6 +3,7 @@ I made a bot that has reddit features like dankmemer but with working slash comm
 
 ## 🔗 Links
  **[Website](https://paddycrack.com)**
+ 
  **[Invite me](https://discord.com/api/oauth2/authorize?client_id=916743866915389542&amp;permissions=8&amp;scope=applications.commands%20bot)**
  
  ## ⚖️ License
