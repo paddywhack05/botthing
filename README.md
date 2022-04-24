@@ -6,7 +6,7 @@ I made a bot that has reddit features like dankmemer but with working slash comm
  **[Invite me](https://discord.com/api/oauth2/authorize?client_id=916743866915389542&amp;permissions=8&amp;scope=applications.commands%20bot)**
  
  ## ⚖️ License
- [Mit license]{https://github.com/paddywhack05/botthing/blob/main/LICENSE}
+ [Mit license](https://github.com/paddywhack05/botthing/blob/main/LICENSE)
  
  ## Using this alone or hosting it on a different platform
  If you want to host this your self on replit go to my secrets and make a new secrete called TOKEN all caps and put your bot token in the value field.
