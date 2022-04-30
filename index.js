@@ -98,6 +98,16 @@ client.once('ready', async() =>{
             required:'true',
         }],
     };
+    const reddit = {
+        name: 'reddit',
+        description: 'Any subreddit',
+        options:[{
+            name:'subreddit',
+            type: 'STRING',
+            description:'decides subreddit',
+            required:'true',
+        }],
+    };
     const command = await client.application?.commands.create(data);
     const memeslash = await client.application?.commands.create(meme);
     const dankmemeslash = await client.application?.commands.create(dankmeme);
@@ -114,6 +124,7 @@ client.once('ready', async() =>{
     const helpslash = await client.application?.commands.create(help)
     const dcslslash = await client.application?.commands.create(dcsl)
     const asciislash = await client.application?.commands.create(ascii)
+    const redditslash = await client.application?.commands.create(reddit)
     client.user.setActivity('Me destroy buttons in discord.js ye thats right buttons done', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
@@ -183,6 +194,10 @@ client.on("interactionCreate", async (interaction) => {
         if (interaction.commandName ==='echo'){
             const text = interaction.options.getString('yourtext');
             await interaction.reply({content: text + '.', ephemeral: false});
+        }
+        if (interaction.commandName ==='reddit'){
+            const text = interaction.options.getString('subreddit');
+            client.commands.get('redditslash').execute(interaction,client,text);
         }
     }
     if (interaction.isButton()){
