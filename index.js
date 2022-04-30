@@ -88,6 +88,10 @@ client.once('ready', async() =>{
         name: 'meme',
         description:'gives you a meme',
   }
+  const technicaly ={
+    name: 'technicaly',
+    description:'like technically',
+}
     const data = {
         name: 'echo',
         description: 'echo thing',
@@ -125,6 +129,7 @@ client.once('ready', async() =>{
     const dcslslash = await client.application?.commands.create(dcsl)
     const asciislash = await client.application?.commands.create(ascii)
     const redditslash = await client.application?.commands.create(reddit)
+    const technicalyslash = await client.application?.commands.create(technicaly)
     client.user.setActivity('Me destroy buttons in discord.js ye thats right buttons done', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
@@ -199,6 +204,9 @@ client.on("interactionCreate", async (interaction) => {
             const text = interaction.options.getString('subreddit');
             client.commands.get('redditslash').execute(interaction,client,text);
         }
+        if (interaction.commandName ==='technicaly'){
+            client.commands.get('technicallyslash').execute(interaction,client);
+        }
     }
     if (interaction.isButton()){
         console.log(interaction);
@@ -207,6 +215,11 @@ client.on("interactionCreate", async (interaction) => {
             client.commands.get('memeslash').execute(interaction,client);
 
         }
+        if(interaction.customId==="technicaly"){
+            interaction.reply({content: 'loading reddit...', ephemeral: false}).then(interaction.deleteReply())
+             client.commands.get('technicallyslash').execute(interaction,client);
+ 
+         }
         if(interaction.customId==="dankmeme"){
             interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dankmemeslash').execute(interaction,client);
@@ -313,11 +326,14 @@ client.commands.get('ukrainenews').execute(message,client);
 if (message.content.toLowerCase() === "!ukraine"){ 
     client.commands.get('ukraine').execute(message,client);
 }
+
 if (message.content.toLowerCase() === '!commands'||message.content.toLowerCase()==='!help') {
 client.commands.get('command').execute(message,client);
 }
 
-   
+if (message.content.toLowerCase() === "!technically"||message.content.toLowerCase() === "!technicallythetruth"){ 
+    client.commands.get('technically').execute(message,client);
+}
 
     if (message.content.toLowerCase() === 'up, up, down, down, left, right, left, right, b, a'|| message.content.toLowerCase === "up up down down left right left right b a") {
     client.commands.get('konamicode').execute(message,client);
