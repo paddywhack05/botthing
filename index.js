@@ -148,6 +148,7 @@ client.on("interactionCreate", async (interaction) => {
             client.commands.get('asciislash').execute(interaction,client);
         }
         if(interaction.commandName==='help'){
+            interaction.reply({content: 'loading help...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('helpslash').execute(interaction,client);
         }
         if(interaction.commandName==='hack'){
