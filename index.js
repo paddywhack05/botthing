@@ -142,6 +142,7 @@ client.on("interactionCreate", async (interaction) => {
     if (interaction.isCommand()){
 
         if(interaction.commandName==='dcsl'){
+            interaction.reply({content: 'loading dcsl...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dcslslash').execute(interaction,client);
         }
         if(interaction.commandName==='ascii'){
@@ -203,9 +204,11 @@ client.on("interactionCreate", async (interaction) => {
         }
         if (interaction.commandName ==='reddit'){
             const text = interaction.options.getString('subreddit');
+            interaction.reply({content: `loading ${text}...`, ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('redditslash').execute(interaction,client,text);
         }
         if (interaction.commandName ==='technicaly'){
+            interaction.reply({content: `loading technicallythetruth...`, ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('technicallyslash').execute(interaction,client);
         }
     }
