@@ -1,3 +1,5 @@
+
+const fetch = require('node-fetch');
 const Discord = require('discord.js');
 const redditFetch = require('reddit-fetch/src/redditFetch');
 const{MessageActionRow,MessageButton} = require('discord.js');
@@ -5,8 +7,19 @@ module.exports= {
 name: "redditslash",
 description:"redditslash command",
 async execute(interaction,client,text){
-        fetch();
-    async function fetch(){
+    check();
+    async function check(){
+        const res = await fetch(`https://api.reddit.com/r/${text}/.json?limit=800&?sort=hot&t=all`);
+        const data = await res.json();
+        console.log(data)
+        if (data.error === 404||data.error === 403||data.data.dist === 0){
+            interaction.channel.send(`subreddit not found reason ${data.reason} message ${data.message} err code ${data.error} \n if it says undefind under message or err there was not enough data or a sub called that was deleted`);
+        }
+        else{rfetch();}
+    
+    }
+
+    async function rfetch(){
     redditFetch({
         
         subreddit:`${text}`,
@@ -48,7 +61,7 @@ async execute(interaction,client,text){
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
            
          }else {
-             fetch();
+             rfetch();
          }
      
          
