@@ -268,7 +268,9 @@ client.on('messageCreate', async message =>{
     if (message.content.toLowerCase() ==="!rickroll"){
         client.commands.get('rickroll').execute(message,client);
     }
-    
+    if (message.content === '!ping') {  
+        message.channel.send(`right back at you latency is ${Date.now() - message.createdTimestamp}ms`);
+      }
     if (message.content.toLowerCase() ==="!button"){
         const row = new Discord.MessageActionRow().addComponents(
             new Discord.MessageButton()
