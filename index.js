@@ -91,7 +91,11 @@ client.once('ready', async() =>{
   const technicaly ={
     name: 'technicaly',
     description:'like technically',
-}
+  }
+    const ping ={
+    name: 'ping',
+    description:'checks latency',
+    }
     const data = {
         name: 'echo',
         description: 'echo thing',
@@ -130,6 +134,7 @@ client.once('ready', async() =>{
     const asciislash = await client.application?.commands.create(ascii)
     const redditslash = await client.application?.commands.create(reddit)
     const technicalyslash = await client.application?.commands.create(technicaly)
+    const pingslash = await client.application?.commands.create(ping)
     client.user.setActivity('Me destroy buttons in discord.js ye thats right buttons done', { type: 'WATCHING'});
     client.user.setPresence({
         status: "idle"
@@ -151,6 +156,9 @@ client.on("interactionCreate", async (interaction) => {
         if(interaction.commandName==='help'){
             interaction.reply({content: 'loading help...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('helpslash').execute(interaction,client);
+        }
+        if(interaction.commandName==='ping'){
+            interaction.reply(`right back at you latency is ${Date.now() - interaction.createdTimestamp}ms`);
         }
         if(interaction.commandName==='hack'){
             client.commands.get('hackslash').execute(interaction,client);
