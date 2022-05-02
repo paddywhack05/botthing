@@ -135,7 +135,7 @@ client.once('ready', async() =>{
     const redditslash = await client.application?.commands.create(reddit)
     const technicalyslash = await client.application?.commands.create(technicaly)
     const pingslash = await client.application?.commands.create(ping)
-    client.user.setActivity('Me destroy buttons in discord.js ye thats right buttons done', { type: 'WATCHING'});
+    client.user.setActivity(`in ${client.guilds.cache.size} servers`, { type: 'PLAYING'});
     client.user.setPresence({
         status: "idle"
     });
