@@ -15,6 +15,11 @@ async execute(interaction,client,text){
         if (data.error === 404||data.error === 403||data.data.dist === 0){
             interaction.channel.send(`subreddit not found reason ${data.reason} message ${data.message} err code ${data.error} \n if it says undefind under message or err there was not enough data or a sub called that was deleted`);
         }
+        else if(data.over_18 = true){
+            interaction.user.send(`why dick head`);
+            interaction.channel.send(`Don't even try it`);
+            return;
+            }
         else{rfetch();}
     
     }
