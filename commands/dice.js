@@ -18,6 +18,7 @@ module.exports= {
         const url2 = dices[dice2 - 1];
     
         message.channel.send(`${url1}`);
-        message.channel.send( `${url2} \n you got ${ans}`);
+        message.channel.send( `${url2} \n`);
+        message.channel.send( `You got ${ans}`);
       },
     };
