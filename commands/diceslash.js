@@ -1,7 +1,7 @@
 module.exports = {
     name: 'diceslash',
     description: 'dice slashcommand',
-    execute(interaction) {
+    async execute(interaction) {
       const dices = [
         'https://imgur.com/a/YdAmiRe',
         'https://imgur.com/a/w35gKMR',
@@ -16,7 +16,7 @@ module.exports = {
       // array's index starts at zero
       const url1 = dices[dice1 - 1];
       const url2 = dices[dice2 - 1];
-  
-      interaction.reply({ content: `${url1} ${url2} \n you got ${ans}` });
+      await interaction.reply({ content: `${url1}` });
+      interaction.followUp({content: `${url2} \n you got ${ans}` });
     },
   };
