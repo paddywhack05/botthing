@@ -1,6 +1,5 @@
 # Paddycrack bot
 I made a bot that has reddit features like dankmemer but with working slash commands and no economy system if you do not want those features
-
 ## 🔗 Links
  - **[Website](https://paddycrack.com)**
  
