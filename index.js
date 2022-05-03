@@ -158,7 +158,7 @@ client.on("interactionCreate", async (interaction) => {
             client.commands.get('helpslash').execute(interaction,client);
         }
         if(interaction.commandName==='ping'){
-            interaction.reply(`right back at you latency is ${Date.now() - interaction.createdTimestamp}ms`);
+            interaction.reply(`🏓 Pong! latency is ${Date.now() - interaction.createdTimestamp}ms`);
         }
         if(interaction.commandName==='hack'){
             client.commands.get('hackslash').execute(interaction,client);
@@ -277,7 +277,7 @@ client.on('messageCreate', async message =>{
         client.commands.get('rickroll').execute(message,client);
     }
     if (message.content === '!ping') {  
-        message.channel.send(`right back at you latency is ${Date.now() - message.createdTimestamp}ms`);
+        message.channel.send(`🏓 Pong! latency is ${Date.now() - message.createdTimestamp}ms`);
       }
     if (message.content.toLowerCase() ==="!button"){
         const row = new Discord.MessageActionRow().addComponents(
