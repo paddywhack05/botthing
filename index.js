@@ -92,6 +92,22 @@ client.once('ready', async() =>{
     name: 'technicaly',
     description:'like technically',
   }
+  const userinfo={
+    name: 'userinfo',
+    description:'gives you info about you',
+}
+const info={
+    name: 'info',
+    description:'gives you info about paddycrack',
+}
+const invite={
+    name: 'invite',
+    description:'gives you an invite link',
+}
+const vote={
+    name: 'vote',
+    description:'links you to my top.gg please vote for me to spread my bot',
+}
     const ping ={
     name: 'ping',
     description:'checks latency',
@@ -135,6 +151,10 @@ client.once('ready', async() =>{
     const redditslash = await client.application?.commands.create(reddit)
     const technicalyslash = await client.application?.commands.create(technicaly)
     const pingslash = await client.application?.commands.create(ping)
+    const userinfoslash = await client.application?.commands.create(userinfo)
+    const infoslash = await client.application?.commands.create(info)
+    const voteslash = await client.application?.commands.create(vote)
+    const inviteslash = await client.application?.commands.create(invite)
     client.user.setActivity(`in ${client.guilds.cache.size} servers`, { type: 'PLAYING'});
     client.user.setPresence({
         status: "idle"
@@ -145,7 +165,18 @@ client.once('ready', async() =>{
 client.on("interactionCreate", async (interaction) => {
     
     if (interaction.isCommand()){
-
+        if(interaction.commandName==='userinfo'){
+            client.commands.get('userinfoslash').execute(interaction,client);
+        }
+        if(interaction.commandName==='invite'){
+            client.commands.get('inviteslash').execute(interaction,client);
+        }
+        if(interaction.commandName==='info'){
+            client.commands.get('infoslash').execute(interaction,client);
+        }
+        if (interaction.commandName ==='vote'){
+            client.commands.get('voteslash').execute(interaction,client);
+        }
         if(interaction.commandName==='dcsl'){
             interaction.reply({content: 'loading dcsl...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dcslslash').execute(interaction,client);
@@ -273,6 +304,18 @@ client.on('messageCreate', async message =>{
         client.commands.get('meme').execute(message,client);
   
     }
+    if (message.content.toLowerCase() ==="!userinfo"){
+        client.commands.get('userinfo').execute(message,client);
+    }
+    if (message.content.toLowerCase() ==="!invite"){
+        client.commands.get('invite').execute(message,client);
+    }
+    if (message.content.toLowerCase() ==="!info"){
+        client.commands.get('info').execute(message,client);
+    }
+    if (message.content.toLowerCase() === "!vote"){ 
+        client.commands.get('vote').execute(message,client);
+     }
     if (message.content.toLowerCase() ==="!rickroll"){
         client.commands.get('rickroll').execute(message,client);
     }
