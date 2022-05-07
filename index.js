@@ -106,7 +106,7 @@ const invite={
 }
 const vote={
     name: 'vote',
-    description:'links you to my top.gg please vote for me to spread my bot',
+    description:'links you to my top.gg and dbl please vote for me to spread my bot',
 }
     const ping ={
     name: 'ping',
