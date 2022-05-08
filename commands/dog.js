@@ -12,10 +12,10 @@ execute(message){
         sort: 'top',
         allowNSFW: false,
        allowCrossPost: true,
-        allowVideo: true,
+        allowVideo: false,
         allowModPost: true,
        }).then(post => {
-        if(post.is_video){fetch();return;}
+        
         if(post.url.includes("gallery")){fetch();return;}
            if(post.upvote_ratio >= 0.90){
             var anser = 1.00-post.upvote_ratio;

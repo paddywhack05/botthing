@@ -12,7 +12,7 @@ execute(message){
         sort: 'top',
         allowNSFW: false,
     allowCrossPost: true,
-        allowVideo: true,
+        allowVideo: false,
         allowModPost: true,
      }).then(post => {
         if(post.is_video){fetch();return;}

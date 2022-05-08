@@ -12,7 +12,7 @@ execute(message,client){
         sort: 'top',
         allowNSFW: false,
     allowCrossPost: true,
-        allowVideo: true,
+        allowVideo: false,
         allowModPost: true,
         
      }).then(post => {
@@ -22,7 +22,6 @@ execute(message,client){
         console.log(final);
         var final = Math.round(dwn);
          console.log(post);
-         if(post.is_video){fetch();return;}
          if(post.url.includes("gallery")){fetch();return;}
          if(post.upvote_ratio >= 0.90){
             const embed = new Discord.MessageEmbed()

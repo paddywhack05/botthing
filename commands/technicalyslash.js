@@ -12,7 +12,7 @@ execute(interaction){
         sort: 'top',
         allowNSFW: false,
     allowCrossPost: true,
-        allowVideo: true,
+        allowVideo: false,
         allowModPost: true,
      }).then(async post => {
         if(post.is_video){fetch();return;}
