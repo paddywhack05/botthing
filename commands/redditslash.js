@@ -24,13 +24,17 @@ async execute(interaction,client,text){
         
         subreddit:`${text}`,
         sort: 'top',
-        allowNSFW: false,
+        allowNSFW: true,
     allowCrossPost: true,
         allowVideo: false,
         allowModPost: false,
         
      }).then(async post => {
-         
+        if(post.over_18 === true){
+            console.log("brugh");
+            interaction.channel.send("why why would you do that.")
+            return;
+        }
         
              if(post.url.includes("gallery")){fetch();return;}
              if(post.upvote_ratio >= 0.90){
