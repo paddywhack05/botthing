@@ -39,7 +39,12 @@ execute(interaction){
                .setLabel(`Another minecraft build or smth`)
                .setStyle("SUCCESS"),
            )
-
+           .addComponents(
+            new MessageButton()
+            .setLabel(`r/minecraft`)
+            .setURL(`https://www.reddit.com/r/minecraft/`)
+            .setStyle("LINK"),
+        )
            //await interaction.reply({ content:`next meme`,component: [row]})
            await interaction.channel.send({ embeds: [embed],components: [row]});
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);

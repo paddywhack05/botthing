@@ -40,6 +40,12 @@ execute(message){
                 .setLabel(`Next Dog`)
                 .setStyle("SUCCESS"),
             )
+            .addComponents(
+                new MessageButton()
+                .setLabel(`r/dogimages`)
+                .setURL(`https://www.reddit.com/r/dogimages/`)
+                .setStyle("LINK"),
+            )
          message.channel.send({ embeds: [embed],components: [row] });
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
           }else {

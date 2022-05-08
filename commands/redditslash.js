@@ -55,10 +55,16 @@ async execute(interaction,client,text){
             .setImage(`${post.url}`)
             .setFooter(`💬 ${post.num_comments} 👍 ${post.ups} 👎 ${final}`)
             const row = new Discord.MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                .setLabel(`r/${text}`)
+                .setURL(`https://www.reddit.com/r/${text}/`)
+                .setStyle("LINK"),
+            )
            
 //upvotes divided by upvote ratio = kinda of down votes
             //await interaction.reply({ content:`next meme`,component: [row]})
-            await interaction.channel.send({ embeds: [embed]});
+            await interaction.channel.send({ embeds: [embed],components: [row]});
             console.log(`dwn ${post.downs} \n ups${post.upvote_ratio} \n real downs ${anser}`)
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
            

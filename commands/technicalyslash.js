@@ -40,7 +40,12 @@ execute(interaction){
                .setLabel(`technicaly`)
                .setStyle("SUCCESS"),
            )
-
+           .addComponents(
+            new MessageButton()
+            .setLabel(`r/technicallythetruth`)
+            .setURL(`https://www.reddit.com/r/technicallythetruth/`)
+            .setStyle("LINK"),
+        )
            //await interaction.reply({ content:`next meme`,component: [row]})
            await interaction.channel.send({ embeds: [embed],components: [row]});
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);

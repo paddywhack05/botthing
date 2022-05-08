@@ -44,6 +44,12 @@ async execute(interaction,client){
                 .setLabel(`Next Meme`)
                 .setStyle("SUCCESS"),
             )
+            .addComponents(
+                new MessageButton()
+                .setLabel(`r/memes`)
+                .setURL(`https://www.reddit.com/r/memes/`)
+                .setStyle("LINK"),
+            )
 //upvotes divided by upvote ratio = kinda of down votes
             //await interaction.reply({ content:`next meme`,component: [row]})
             await interaction.channel.send({ embeds: [embed],components: [row]});

@@ -40,7 +40,12 @@ execute(interaction){
                .setLabel(`Next Meme`)
                .setStyle("SUCCESS"),
            )
-
+           .addComponents(
+            new MessageButton()
+            .setLabel(`r/dankmeme`)
+            .setURL(`https://www.reddit.com/r/dankmeme/`)
+            .setStyle("LINK"),
+        )
            //await interaction.reply({ content:`next meme`,component: [row]})
            await interaction.channel.send({ embeds: [embed],components: [row]});
            //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);

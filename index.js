@@ -155,7 +155,7 @@ const vote={
     const infoslash = await client.application?.commands.create(info)
     const voteslash = await client.application?.commands.create(vote)
     const inviteslash = await client.application?.commands.create(invite)
-    client.user.setActivity(`in ${client.guilds.cache.size} servers`, { type: 'PLAYING'});
+    client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
     client.user.setPresence({
         status: "idle"
     });

@@ -40,6 +40,12 @@ execute(message){
                .setLabel(`Next Cat`)
                .setStyle("SUCCESS"),
            )
+           .addComponents(
+            new MessageButton()
+            .setLabel(`r/catpics`)
+            .setURL(`https://www.reddit.com/r/catpics/`)
+            .setStyle("LINK"),
+        )
         message.channel.send({ embeds: [embed],components: [row] });
         //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
         console.log(post);

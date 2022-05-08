@@ -44,6 +44,12 @@ execute(interaction){
                 .setLabel(`More news about glorious nation`)
                 .setStyle("SUCCESS"),
             )
+            .addComponents(
+                new MessageButton()
+                .setLabel(`r/UkraineWarReports`)
+                .setURL(`https://www.reddit.com/r/UkraineWarReports/`)
+                .setStyle("LINK"),
+            )
  
             //await interaction.reply({ content:`next meme`,component: [row]})
             await interaction.channel.send({ embeds: [embed],components: [row]});

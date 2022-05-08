@@ -40,7 +40,12 @@ execute(interaction,pages,time){
                .setLabel(`Next Cat`)
                .setStyle("SUCCESS"),
            )
-
+           .addComponents(
+            new MessageButton()
+            .setLabel(`r/catpics`)
+            .setURL(`https://www.reddit.com/r/catpics/`)
+            .setStyle("LINK"),
+        )
            //await interaction.reply({ content:`next meme`,component: [row]})
            await interaction.channel.send({ embeds: [embed],components: [row]});
            //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);

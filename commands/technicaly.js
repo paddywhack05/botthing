@@ -40,6 +40,12 @@ execute(message){
                 .setLabel(`technicaly`)
                 .setStyle("SUCCESS"),
             )
+            .addComponents(
+                new MessageButton()
+                .setLabel(`r/technicallythetruth`)
+                .setURL(`https://www.reddit.com/r/technicallythetruth/`)
+                .setStyle("LINK"),
+            )
          message.channel.send({ embeds: [embed],components: [row] });
          if(post.url.includes(".gif")){message.channel.send(post.url)}
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);

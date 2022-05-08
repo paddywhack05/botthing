@@ -46,6 +46,12 @@ execute(message){
                 .setLabel(`More about glorious nation`)
                 .setStyle("SUCCESS"),
             )
+            .addComponents(
+                new MessageButton()
+                .setLabel(`r/ukraine`)
+                .setURL(`https://www.reddit.com/r/ukraine/`)
+                .setStyle("LINK"),
+            )
          message.channel.send({ embeds: [embed],components: [row] });
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
             }else {
