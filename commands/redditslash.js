@@ -31,8 +31,8 @@ async execute(interaction,client,text){
         
      }).then(async post => {
         if(post.over_18 === true){
+            interaction.channel.send("https://www.youtube.com/watch?v=9Deg7VrpHbM")
             console.log("brugh");
-            interaction.channel.send("why why would you do that.")
             return;
         }
         
