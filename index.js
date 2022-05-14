@@ -274,7 +274,8 @@ client.on('messageCreate', async message =>{
  
     if(message.channelId ==='975086263247986698'){
         var e = message.mentions.users.first();
-         e.send("Thank you for voting "+message.author.username);
+        console.log(e)
+         e.send("Thank you for voting " + message.author.username.replace('vote bot',''));
      }
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
    if (message.content.toLowerCase() === "!dcsl"){
