@@ -178,14 +178,12 @@ client.on("interactionCreate", async (interaction) => {
             client.commands.get('voteslash').execute(interaction,client);
         }
         if(interaction.commandName==='dcsl'){
-            interaction.reply({content: 'loading dcsl...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dcslslash').execute(interaction,client);
         }
         if(interaction.commandName==='ascii'){
             client.commands.get('asciislash').execute(interaction,client);
         }
         if(interaction.commandName==='help'){
-            interaction.reply({content: 'loading help...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('helpslash').execute(interaction,client);
         }
         if(interaction.commandName==='ping'){
@@ -195,46 +193,36 @@ client.on("interactionCreate", async (interaction) => {
             client.commands.get('hackslash').execute(interaction,client);
         }
         if(interaction.commandName==='ukrainenews'){
-            interaction.reply({content: 'loading ukraine news...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukrainenewsslash').execute(interaction,client);
         }
         if(interaction.commandName==='dice'){
             client.commands.get('diceslash').execute(interaction,client);
         }
         if(interaction.commandName==='rap'){
-            interaction.reply({content: 'loading rap...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('rapslash').execute(interaction,client);
         }
         if(interaction.commandName==='minecraft'){
-            interaction.reply({content: 'loading minecraft...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('minecraftslash').execute(interaction,client);
         }
         if(interaction.commandName==='dog'){
-            interaction.reply({content: 'loading dog...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dogslash').execute(interaction,client);
         }
         if(interaction.commandName==='ring'){
-            interaction.reply({content: 'ringing...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ringslash').execute(interaction,client);
         }
         if(interaction.commandName === 'ukraine'){
-            interaction.reply({content: 'loading ukraine stuff...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukraineslash').execute(interaction,client);
         }
         if(interaction.commandName === 'cat'){
-            interaction.reply({content: 'loading cat...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('catslash').execute(interaction,client);
         }
         if(interaction.commandName === 'infuriating'){
-            interaction.reply({content: 'loading something infuriating...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('infuriatingslash').execute(interaction,client);
         }
         if(interaction.commandName === 'dankmeme'){
-            interaction.reply({content: 'loading dankmeme...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dankmemeslash').execute(interaction,client);
         }
         if (interaction.commandName === 'meme'){
-            interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
              client.commands.get('memeslash').execute(interaction,client);
         }
         if (interaction.commandName ==='echo'){
@@ -243,52 +231,41 @@ client.on("interactionCreate", async (interaction) => {
         }
         if (interaction.commandName ==='reddit'){
             const text = interaction.options.getString('subreddit');
-            interaction.reply({content: `loading ${text}...`, ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('redditslash').execute(interaction,client,text);
         }
         if (interaction.commandName ==='technicaly'){
-            interaction.reply({content: `loading technicallythetruth...`, ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('technicallyslash').execute(interaction,client);
         }
     }
     if (interaction.isButton()){
         console.log(interaction);
         if(interaction.customId==="meme"){
-            interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('memeslash').execute(interaction,client);
 
         }
         if(interaction.customId==="technicaly"){
-            interaction.reply({content: 'loading reddit...', ephemeral: false}).then(interaction.deleteReply())
              client.commands.get('technicallyslash').execute(interaction,client);
  
          }
         if(interaction.customId==="dankmeme"){
-            interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dankmemeslash').execute(interaction,client);
         }
         if(interaction.customId==="cat"){
-            interaction.reply({content: 'loading cat...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('catslash').execute(interaction,client);
         }
         if(interaction.customId==="dog"){
-            interaction.reply({content: 'loading dog...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('dogslash').execute(interaction,client);
         }
         if(interaction.customId==="infuriating"){
-            interaction.reply({content: 'loading madness...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('infuriatingslash').execute(interaction,client);
         }
         if(interaction.customId==="minecraft"){
-            interaction.reply({content: 'loading minecraft...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('minecraftslash').execute(interaction,client);
         }
         if(interaction.customId==="news"){
-            interaction.reply({content: 'loading ukraine news...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukrainenewsslash').execute(interaction,client);
         }
         if(interaction.customId==="ukraine"){
-            interaction.reply({content: 'loading ukraine stuff...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('ukraineslash').execute(interaction,client);
         }
     }

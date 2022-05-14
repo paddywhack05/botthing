@@ -14,7 +14,7 @@ execute(interaction){
         allowModPost: true,
        }).then(post => {
            if(post.upvote_ratio >= 0.90){
-               interaction.channel.send(`here is a rap ${interaction.user.tag} TITLE ${post.title} RAP ${post.selftext} ${post.url}`);
+               interaction.reply(`here is a rap ${interaction.user.tag} TITLE ${post.title} RAP ${post.selftext} ${post.url}`);
             }else {
                 fetch();
             }  

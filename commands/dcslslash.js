@@ -30,7 +30,7 @@ module.exports= {
                 .setStyle("LINK"),
             )
          
-          await interaction.channel.send({ embeds: [embed],components: [row]});
+          await interaction.reply({ embeds: [embed],components: [row]});
     }
 }
 }

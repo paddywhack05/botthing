@@ -5,7 +5,11 @@ module.exports= {
     name: "userinfoslash",
     description:"userinfo command",
     execute(interaction){
-       
+        if(!interaction.guild){
+            console.log("dm detected")
+            interaction.reply("You cant use this command in dms");
+           }
+           else{
             e();
             async function e(){
             const embed = new Discord.MessageEmbed()
@@ -21,6 +25,9 @@ module.exports= {
              
               interaction.reply({ embeds: [embed]});
             
+            }
         }
+    
     }
+
 }
