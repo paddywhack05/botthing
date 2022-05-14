@@ -15,9 +15,16 @@ module.exports= {
                 .setURL(`https://discord.com/api/oauth2/authorize?client_id=916743866915389542&permissions=8&scope=applications.commands%20bot`)
                 .setThumbnail(`${client.user.displayAvatarURL({ dynamic: true })}`)
                 .setImage(`${client.user.displayAvatarURL({ dynamic: true })}`)
-                .setDescription(`**[Invite me](https://discord.com/api/oauth2/authorize?client_id=916743866915389542&permissions=8&scope=applications.commands%20bot) \n[Top.gg](https://top.gg/bot/916743866915389542)**`)
+                .setDescription(`**[Invite me](https://discord.com/api/oauth2/authorize?client_id=916743866915389542&permissions=8&scope=applications.commands%20bot) \n[Top.gg](https://top.gg/bot/916743866915389542)\n[DBL](https://discordbotlist.com/bots/paddycrackbot)**`)
                 .setFooter(`paddycrack.com`)
                 const row = new Discord.MessageActionRow()
+                .addComponents(
+                    new MessageButton()
+                    .setEmoji(`📨`)
+                    .setLabel(`Invite`)
+                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=916743866915389542&permissions=8&scope=applications.commands%20bot`)
+                    .setStyle("LINK"),
+                )
                 .addComponents(
                     new MessageButton()
                     .setEmoji(`🌐`)
@@ -27,9 +34,9 @@ module.exports= {
                 )
                 .addComponents(
                     new MessageButton()
-                    .setEmoji(`📨`)
-                    .setLabel(`Invite`)
-                    .setURL(`https://discord.com/api/oauth2/authorize?client_id=916743866915389542&permissions=8&scope=applications.commands%20bot`)
+                    .setEmoji(`🤖`)
+                    .setLabel(`DBL`)
+                    .setURL(`https://discordbotlist.com/bots/paddycrackbot`)
                     .setStyle("LINK"),
                 )
               message.channel.send({ embeds: [embed],components:[row]});
