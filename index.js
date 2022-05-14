@@ -273,9 +273,16 @@ client.on("interactionCreate", async (interaction) => {
 client.on('messageCreate', async message =>{
  
     if(message.channelId ==='975086263247986698'){
-        var e = message.mentions.users.first();
-        console.log(e)
-         e.send("Thank you for voting");
+        var er = message.mentions.users.first();
+        if(!er){return;}
+        else{
+try{
+    er.send("Thank you for voting"); return;
+}catch (error) {
+    console.error(error);
+    message.channel.send("He voted but he is not here"); return;
+  
+}}
      }
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
    if (message.content.toLowerCase() === "!dcsl"){
