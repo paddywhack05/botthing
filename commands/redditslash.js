@@ -15,6 +15,11 @@ async execute(interaction,client,text){
         if (data.error === 404||data.error === 403||data.data.dist === 0){
             interaction.channel.send(`subreddit not found reason ${data.reason} message ${data.message} err code ${data.error} \n if it says undefind under message or err there was not enough data or a sub called that was deleted`);
         }
+        else if(!interaction.guild){
+            console.log("dm detected")
+            interaction.reply("You cant use this command in dms");
+            return;
+           }
         else if (interaction.channel.nsfw){
             console.log("nsfw chanel detected")
             nfetch();
