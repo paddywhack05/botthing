@@ -272,7 +272,10 @@ client.on("interactionCreate", async (interaction) => {
 })
 client.on('messageCreate', async message =>{
  
- 
+    if(message.channelId ==='975086263247986698'){
+        var e = message.mentions.users.first();
+         e.send("Thank you for voting "+message.author.username);
+     }
    // interaction.reply({content:`${interaction.user.tag} clicked me thanks be to god`})
    if (message.content.toLowerCase() === "!dcsl"){
        client.commands.get('dcsl').execute(message,client);
