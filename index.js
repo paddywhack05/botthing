@@ -12,6 +12,8 @@ const rap = require('./commands/rap');
 const dice = require('./commands/dice');
 const hack = require('./commands/hack');
 const dcsl = require('./commands/dcsl');
+const express = require('express')
+const app = require('express')
 const http = require('http');
 
 http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
@@ -33,6 +35,10 @@ for (const file of commandFiles){
 client.once('ready', async() =>{
     console.log('its ready');
     const bot_guilds = client.guilds.cache.map(guild=> guild.name);
+    app.get('/',(req,res)=> {
+        res.send(bot_guilds);
+    });
+    app.listen(8080,()=> console.log('listening on port 8080'));
     console.log(bot_guilds);
     const ascii={
         name:'ascii',
