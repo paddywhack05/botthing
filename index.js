@@ -12,15 +12,7 @@ const rap = require('./commands/rap');
 const dice = require('./commands/dice');
 const hack = require('./commands/hack');
 const dcsl = require('./commands/dcsl');
-const express = require('express')
-const app = require('express')
-const http = require('http');
 
-http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
-    resp.on('data', function(ip) {
-      console.log("My public IP address is: " + ip);
-    });
-  });
 
 //const meme = require('./commands/meme');
 const client = new Discord.Client({  partials: ["CHANNEL"], intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS","DIRECT_MESSAGES","DIRECT_MESSAGE_TYPING","DIRECT_MESSAGE_REACTIONS"] }); 
@@ -35,10 +27,6 @@ for (const file of commandFiles){
 client.once('ready', async() =>{
     console.log('its ready');
     const bot_guilds = client.guilds.cache.map(guild=> guild.name);
-    app.get('/',(req,res)=> {
-        res.send(bot_guilds);
-    });
-    app.listen(8080,()=> console.log('listening on port 8080'));
     console.log(bot_guilds);
     const ascii={
         name:'ascii',
