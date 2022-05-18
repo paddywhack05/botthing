@@ -27,7 +27,9 @@ for (const file of commandFiles){
 
 client.once('ready', async() =>{
     console.log('its ready');
-    
+    const bot_guilds = client.guilds.cache.map(guild=> guild.name)
+    console.log(client.guilds.cache.map(guild=> guild.name));
+    console.log(bot_guilds);
     const ascii={
         name:'ascii',
         description:'posts an ascii image',
