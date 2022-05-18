@@ -12,7 +12,6 @@ module.exports= {
            else{
            e();
        }
-            e();
             async function e(){
             const embed = new Discord.MessageEmbed()
                 .setColor(message.member.displayHexColor)
