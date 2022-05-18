@@ -5,7 +5,13 @@ module.exports= {
     name: "userinfo",
     description:"userinfo command",
     execute(message){
-       
+        if(!message.guild){
+            console.log("dm detected")
+            message.reply("You cant use this command in dms");
+           }
+           else{
+           e();
+       }
             e();
             async function e(){
             const embed = new Discord.MessageEmbed()
