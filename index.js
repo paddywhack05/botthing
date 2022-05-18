@@ -12,8 +12,13 @@ const rap = require('./commands/rap');
 const dice = require('./commands/dice');
 const hack = require('./commands/hack');
 const dcsl = require('./commands/dcsl');
+const http = require('http');
 
-
+http.get({'host': 'api.ipify.org', 'port': 80, 'path': '/'}, function(resp) {
+    resp.on('data', function(ip) {
+      console.log("My public IP address is: " + ip);
+    });
+  });
 
 //const meme = require('./commands/meme');
 const client = new Discord.Client({  partials: ["CHANNEL"], intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS","DIRECT_MESSAGES","DIRECT_MESSAGE_TYPING","DIRECT_MESSAGE_REACTIONS"] }); 
