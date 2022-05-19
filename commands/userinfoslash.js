@@ -14,6 +14,8 @@ module.exports= {
                async function e(){
                const Target = text||interaction.user;
                const Member = interaction.guild.members.cache.get(Target.id)
+               if(!Member){
+                interaction.reply('This user is not in the server');return;}
            const embed = new Discord.MessageEmbed()
                .setColor(Member.displayHexColor||'RED')
                .setAuthor(`${Target.tag}`, Target.displayAvatarURL({ dynamic: true }))
