@@ -300,7 +300,7 @@ try{
         client.commands.get('meme').execute(message,client);
   
     }
-    if (message.content.toLowerCase() ==="!userinfo"){
+    if (message.content.toLowerCase().startsWith("!userinfo")){
         client.commands.get('userinfo').execute(message,client);
     }
     if (message.content.toLowerCase() ==="!invite"){
