@@ -27,7 +27,7 @@ module.exports= {
                .addField(`**Nickname: ${Member.nickname}**`)
                .addField(`**User id: ${Target.id}**`,false)
                .addField(`**Role color: ${Member.displayHexColor}`)*/
-               .addField("Roles",`${Member.roles.cache.map(r=>r).join(' ').replace("@everyone"," ")}`)
+               .addField("Roles",`${Member.roles.cache.map(r=>r).join(' ')}`)
                .setFooter(`paddycrack.com`)
               
                   
