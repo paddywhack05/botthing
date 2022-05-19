@@ -95,6 +95,13 @@ client.once('ready', async() =>{
   const userinfo={
     name: 'userinfo',
     description:'gives you info about you',
+    options:[{
+        name:'member',
+        type: 'USER',
+        description:'User to get info on',
+        required:'false',
+    },
+    ],
 }
 const info={
     name: 'info',
@@ -166,7 +173,8 @@ client.on("interactionCreate", async (interaction) => {
     
     if (interaction.isCommand()){
         if(interaction.commandName==='userinfo'){
-            client.commands.get('userinfoslash').execute(interaction,client);
+            const text = interaction.options.getUser('member');
+            client.commands.get('userinfoslash').execute(interaction,client,text);
         }
         if(interaction.commandName==='invite'){
             client.commands.get('inviteslash').execute(interaction,client);
