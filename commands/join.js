@@ -43,7 +43,7 @@ module.exports= {
         .setAuthor(`${guild.name}`, `${guild.iconURL({ dynamic: true })||client.user.displayAvatarURL({ dynamic: true })}`)
         .setTitle(`${guild.name}`)
         .setURL(`https://paddycrack.com`)
-        .setDescription(`Thank you for choosing Paddycrack go to my [website](https://paddycrack.com)\n Vote for me on [Top.gg](https://top.gg/bot/916743866915389542/vote) or [DBL](https://discordbotlist.com/bots/paddycrackbot/upvote) if you want to get notified when you vote join [my comunity server](https://discord.gg/yFZXQB8cjx) it will also put your username on a list on my server when you join`)
+        .setDescription(`Thank you for choosing Paddycrack go to my [website](https://paddycrack.com)\n Vote for me on [Top.gg](https://top.gg/bot/916743866915389542/vote) or [DBL](https://discordbotlist.com/bots/paddycrackbot/upvote) if you want to get notified when you vote join [my comunity server](https://discord.gg/yFZXQB8cjx) it will also put your username on a list on my server when you vote`)
         .setThumbnail(`${guild.iconURL({ dynamic: true })||client.user.displayAvatarURL({ dynamic: true })}`)
         .setFooter(`paddycrack.com`)
         const ro = new Discord.MessageActionRow()
