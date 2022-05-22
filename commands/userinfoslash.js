@@ -33,7 +33,7 @@ module.exports= {
                     .addField(`**Role color: ${Member.displayHexColor}`)*/
                     .addField(`Roles[0]`,`No roles lol dont think \@everyone counts`)
                     .setFooter(`paddycrack.com`)
-                    interaction.channel.send({ embeds: [embed]});
+                    interaction.reply({ embeds: [embed]});
                 }
                 else{
             const embed = new Discord.MessageEmbed()
@@ -51,7 +51,7 @@ module.exports= {
                 .addField(`**Role color: ${Member.displayHexColor}`)*/
                 .addField(`Roles[${rol}]`,`${Member.roles.cache.map(r=>r).join(' ').replace("@everyone",'.')}`)
                 .setFooter(`paddycrack.com`)
-                interaction.channel.send({ embeds: [embed]});
+                interaction.reply({ embeds: [embed]});
                 }
                }
            }
