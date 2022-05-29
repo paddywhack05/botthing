@@ -248,6 +248,7 @@ client.on("interactionCreate", async (interaction) => {
     }
     if (interaction.isButton()){
         console.log(interaction);
+        await interaction.deferUpdate();
         if(interaction.customId==="meme"){
             client.commands.get('memeslash').execute(interaction,client);
 

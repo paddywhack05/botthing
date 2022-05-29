@@ -52,7 +52,12 @@ async execute(interaction,client){
             )
 //upvotes divided by upvote ratio = kinda of down votes
             //await interaction.reply({ content:`next meme`,component: [row]})
-            await interaction.reply({ embeds: [embed],components: [row]});
+            if(interaction.isButton()||interaction.isSelectMenu()){
+                await interaction.channel.send({ embeds: [embed], components: [row]});
+               }
+               else{
+               await interaction.reply({ embeds: [embed], components: [row]});
+               }
             console.log(`dwn ${post.downs} \n ups${post.upvote_ratio} \n real downs ${anser}`)
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
            
