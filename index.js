@@ -120,6 +120,10 @@ const vote={
     name: 'ping',
     description:'checks latency',
     }
+    const dadjoke={
+        name: 'dadjoke',
+        description:'gives you a dad joke',
+    }
     const data = {
         name: 'echo',
         description: 'echo thing',
@@ -163,6 +167,8 @@ const vote={
     const infoslash = await client.application?.commands.create(info)
     const voteslash = await client.application?.commands.create(vote)
     const inviteslash = await client.application?.commands.create(invite)
+    const dadjokeslash = await client.application?.commands.create(dadjoke)
+
     client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
     client.user.setPresence({
         status: "idle"
@@ -182,6 +188,9 @@ client.on("interactionCreate", async (interaction) => {
         }
         if(interaction.commandName==='info'){
             client.commands.get('infoslash').execute(interaction,client);
+        }
+        if(interaction.commandName==='dadjoke'){
+            client.commands.get('dadjokeslash').execute(interaction,client);
         }
         if (interaction.commandName ==='vote'){
             client.commands.get('voteslash').execute(interaction,client);
@@ -306,7 +315,9 @@ try{
     }
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
-  
+    }
+    if(message.content.toLowerCase()==='!dadjoke'){
+        client.commands.get('dadjoke').execute(message,client);
     }
     if (message.content.toLowerCase().startsWith("!userinfo")){
         client.commands.get('userinfo').execute(message,client);
