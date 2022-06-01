@@ -144,6 +144,17 @@ const vote={
             required:'true',
         }],
     };
+    const ub = {
+        name: 'urban',
+        description: 'urban dictionary defintions',
+        options:[{
+            name:'search',
+            type: 'STRING',
+            description:'search term on urban dictionary',
+            required:'true',
+        },
+        ],
+    };
     const command = await client.application?.commands.create(data);
     const memeslash = await client.application?.commands.create(meme);
     const dankmemeslash = await client.application?.commands.create(dankmeme);
@@ -168,6 +179,7 @@ const vote={
     const voteslash = await client.application?.commands.create(vote)
     const inviteslash = await client.application?.commands.create(invite)
     const dadjokeslash = await client.application?.commands.create(dadjoke)
+    const ubslash = await client.application?.commands.create(ub)
 
     client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
     client.user.setPresence({
@@ -182,6 +194,10 @@ client.on("interactionCreate", async (interaction) => {
         if(interaction.commandName==='userinfo'){
             const text = interaction.options.getUser('member');
             client.commands.get('userinfoslash').execute(interaction,client,text);
+        }
+        if (interaction.commandName ==='urban'){
+            const text = interaction.options.getString('search');
+            client.commands.get('ubslash').execute(interaction,client,text);
         }
         if(interaction.commandName==='invite'){
             client.commands.get('inviteslash').execute(interaction,client);
