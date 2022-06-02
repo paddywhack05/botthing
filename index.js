@@ -272,7 +272,7 @@ client.on("interactionCreate", async (interaction) => {
         }
     }
     if (interaction.isButton()){
-        if(interaction.channel.type === 'GUILD_TEXT')
+        
         console.log(interaction);
         await interaction.deferUpdate();
         if(interaction.customId==="meme"){
