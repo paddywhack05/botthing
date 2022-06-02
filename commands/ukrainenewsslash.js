@@ -52,12 +52,10 @@ execute(interaction){
             )
  
             //await interaction.reply({ content:`next meme`,component: [row]})
-            if(interaction.isButton()||interaction.isSelectMenu()){
-                await interaction.channel.send({ embeds: [embed], components: [row]});
-               }
-               else{
+            
+             
                await interaction.reply({ embeds: [embed], components: [row]});
-               }
+               
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
             }else {
                 fetch();
