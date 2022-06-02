@@ -272,7 +272,7 @@ client.on("interactionCreate", async (interaction) => {
         }
     }
     if (interaction.isButton()){
-        
+        if(interaction.channel==='GUILD_TEXT'){
         console.log(interaction);
         await interaction.deferUpdate();
         if(interaction.customId==="meme"){
@@ -305,6 +305,7 @@ client.on("interactionCreate", async (interaction) => {
             client.commands.get('ukraineslash').execute(interaction,client);
         }
     }
+}
 })
 client.on('guildCreate', async guild => {
     console.log(guild.name);
