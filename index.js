@@ -273,10 +273,10 @@ client.on("interactionCreate", async (interaction) => {
     }
     if (interaction.isButton()){
         console.log(interaction);
-        if(interaction.guild){
+
         const channelObject = interaction.guild.channels.cache.get(interaction.channel.id); // Gets the channel object
         if (channelObject.type === 'voice') {interaction.reply("Sorry you cant use buttons in vc text"); return;}
-        }
+        
         // await interaction.deferUpdate();
         if(interaction.customId==="meme"){
             client.commands.get('memeslash').execute(interaction,client);
