@@ -10,7 +10,7 @@ module.exports= {
                 const response = await fetch(`${url}`)
 const {list} = await response.json()
 const [dat] = list;
-       if(!dat){interaction.reply("that is not a word/term acording to Urban dictionary"); return;}
+       if(!dat){interaction.reply("that is not a word acording to Urban dictionary"); return;}
             e();
             async function e(){
                 //console.log(dat.list)
